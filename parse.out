@@ -151,10 +151,10 @@ State 2:
           cmd ::= * ANALYZE
           cmd ::= * ANALYZE nm dbnm
           cmd ::= * ALTER TABLE fullname RENAME TO nm
-          cmd ::= * ALTER TABLE fullname ADD CONSTRAINT nm expr
           cmd ::= * create_vtab
           cmd ::= * create_vtab LP vtabarglist RP
           create_vtab ::= * createkw VIRTUAL TABLE ifnotexists nm dbnm USING nm
+          cmd ::= * ALTER TABLE fullname ADD CONSTRAINT nm expr
 
                          BEGIN shift  216
                         COMMIT shift  303
@@ -5221,7 +5221,7 @@ State 77:
           expr ::= expr * in_op LP exprlist RP
           expr ::= expr * in_op LP select RP
           expr ::= expr * in_op nm dbnm
-    (310) cmd ::= ALTER TABLE fullname ADD CONSTRAINT nm expr *
+    (323) cmd ::= ALTER TABLE fullname ADD CONSTRAINT nm expr *
 
                            NOT shift  311
                        LIKE_KW shift  587
@@ -5253,7 +5253,7 @@ State 77:
                         likeop shift  51
                     between_op shift  48
                          in_op shift  147
-                     {default} reduce 310
+                     {default} reduce 323
 
 State 78:
           expr ::= expr * COLLATE ids
@@ -7764,7 +7764,21 @@ State 147:
                             id shift  618
 
 State 148:
-    (314) vtabarglist ::= vtabarg *
+    (313) vtabarglist ::= vtabarg *
+          vtabarg ::= vtabarg * vtabargtoken
+          vtabargtoken ::= * ANY
+          vtabargtoken ::= * lp anylist RP
+          lp ::= * LP
+
+                            LP shift  421
+                            RP reduce 313
+                         COMMA reduce 313
+                           ANY shift  425
+                  vtabargtoken shift  426
+                            lp shift  306
+
+State 149:
+    (314) vtabarglist ::= vtabarglist COMMA vtabarg *
           vtabarg ::= vtabarg * vtabargtoken
           vtabargtoken ::= * ANY
           vtabargtoken ::= * lp anylist RP
@@ -7773,20 +7787,6 @@ State 148:
                             LP shift  421
                             RP reduce 314
                          COMMA reduce 314
-                           ANY shift  425
-                  vtabargtoken shift  426
-                            lp shift  306
-
-State 149:
-    (315) vtabarglist ::= vtabarglist COMMA vtabarg *
-          vtabarg ::= vtabarg * vtabargtoken
-          vtabargtoken ::= * ANY
-          vtabargtoken ::= * lp anylist RP
-          lp ::= * LP
-
-                            LP shift  421
-                            RP reduce 315
-                         COMMA reduce 315
                            ANY shift  425
                   vtabargtoken shift  426
                             lp shift  306
@@ -8391,12 +8391,12 @@ State 190:
           cmd ::= create_vtab LP * vtabarglist RP
           vtabarglist ::= * vtabarg
           vtabarglist ::= * vtabarglist COMMA vtabarg
-    (316) vtabarg ::= *
+    (315) vtabarg ::= *
           vtabarg ::= * vtabarg vtabargtoken
 
                    vtabarglist shift  317
                        vtabarg shift  148
-                     {default} reduce 316
+                     {default} reduce 315
 
 State 191:
           from ::= FROM * seltablist
@@ -9579,30 +9579,30 @@ State 304:
                      {default} reduce 10
 
 State 305:
-    (321) anylist ::= *
+    (320) anylist ::= *
           anylist ::= * anylist LP anylist RP
           anylist ::= anylist LP * anylist RP
           anylist ::= * anylist ANY
 
                        anylist shift  313
-                     {default} reduce 321
+                     {default} reduce 320
 
 State 306:
           vtabargtoken ::= lp * anylist RP
-    (321) anylist ::= *
+    (320) anylist ::= *
           anylist ::= * anylist LP anylist RP
           anylist ::= * anylist ANY
 
                        anylist shift  314
-                     {default} reduce 321
+                     {default} reduce 320
 
 State 307:
           vtabarglist ::= vtabarglist COMMA * vtabarg
-    (316) vtabarg ::= *
+    (315) vtabarg ::= *
           vtabarg ::= * vtabarg vtabargtoken
 
                        vtabarg shift  149
-                     {default} reduce 316
+                     {default} reduce 315
 
 State 308:
      (71) refargs ::= *
@@ -9803,11 +9803,11 @@ State 332:
                      {default} reduce 6
 
 State 333:
-    (311) cmd ::= create_vtab *
+    (310) cmd ::= create_vtab *
           cmd ::= create_vtab * LP vtabarglist RP
 
                             LP shift  190
-                     {default} reduce 311
+                     {default} reduce 310
 
 State 334:
           cmd ::= ALTER TABLE fullname ADD * CONSTRAINT nm expr
@@ -10284,39 +10284,39 @@ State 420:
                      {default} reduce 7
 
 State 421:
-    (320) lp ::= LP *
-
-                     {default} reduce 320
-
-State 422:
-    (323) anylist ::= anylist ANY *
-
-                     {default} reduce 323
-
-State 423:
-    (322) anylist ::= anylist LP anylist RP *
-
-                     {default} reduce 322
-
-State 424:
-    (319) vtabargtoken ::= lp anylist RP *
+    (319) lp ::= LP *
 
                      {default} reduce 319
 
-State 425:
-    (318) vtabargtoken ::= ANY *
+State 422:
+    (322) anylist ::= anylist ANY *
+
+                     {default} reduce 322
+
+State 423:
+    (321) anylist ::= anylist LP anylist RP *
+
+                     {default} reduce 321
+
+State 424:
+    (318) vtabargtoken ::= lp anylist RP *
 
                      {default} reduce 318
 
-State 426:
-    (317) vtabarg ::= vtabarg vtabargtoken *
+State 425:
+    (317) vtabargtoken ::= ANY *
 
                      {default} reduce 317
 
-State 427:
-    (312) cmd ::= create_vtab LP vtabarglist RP *
+State 426:
+    (316) vtabarg ::= vtabarg vtabargtoken *
 
-                     {default} reduce 312
+                     {default} reduce 316
+
+State 427:
+    (311) cmd ::= create_vtab LP vtabarglist RP *
+
+                     {default} reduce 311
 
 State 428:
     (309) cmd ::= ALTER TABLE fullname RENAME TO nm *
@@ -10439,9 +10439,9 @@ State 451:
                      {default} reduce 27
 
 State 452:
-    (313) create_vtab ::= createkw VIRTUAL TABLE ifnotexists nm dbnm USING nm *
+    (312) create_vtab ::= createkw VIRTUAL TABLE ifnotexists nm dbnm USING nm *
 
-                     {default} reduce 313
+                     {default} reduce 312
 
 State 453:
     (282) trigger_cmd_list ::= trigger_cmd SEMI *

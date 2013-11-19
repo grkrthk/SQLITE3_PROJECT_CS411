@@ -355,10 +355,10 @@ static const YYACTIONTYPE yy_action[] = {
  /*   530 */   173,  394,  594,  221,  409,  411,  576,  576,  502,  557,
  /*   540 */   366,  146,  510,  414,  409,  231,  576,  576,  587,  581,
  /*   550 */   414,  598,   92,  383,  271,  556,  168,  402,  598,   68,
- /*   560 */   501,  421,  942,  189,  942,  200,  546,   58,   59,   49,
+ /*   560 */   501,  421,  941,  189,  941,  200,  546,   58,   59,   49,
  /*   570 */   579,  578,  580,  580,   56,   56,   57,   57,   57,   57,
  /*   580 */   568,   55,   55,   55,   55,   54,   54,   53,   53,   53,
- /*   590 */    52,  235,  311,  320,  421,  941,  508,  941,  310,  597,
+ /*   590 */    52,  235,  311,  320,  421,  940,  508,  940,  310,  597,
  /*   600 */   594,  565,  490,  214,  411,  248,  425,  615,  614,  613,
  /*   610 */   326,  199,  144,  407,  572,  571,  375,   65,  168,  414,
  /*   620 */   212,  594,  587,  581,  234,  233,  560,  598,   94,  473,
@@ -712,7 +712,7 @@ static const YYACTIONTYPE yy_default[] = {
  /*    40 */   951,  951,  951,  951,  951,  951,  951,  951,  951,  951,
  /*    50 */   951,  951,  951,  951,  951,  951,  951,  951,  951,  951,
  /*    60 */   951,  951,  951,  951,  951,  951,  671,  760,  790,  951,
- /*    70 */   951,  951,  951,  951,  951,  951,  951,  937,  927,  929,
+ /*    70 */   951,  951,  951,  951,  951,  951,  951,  950,  927,  929,
  /*    80 */   798,  797,  907,  771,  795,  788,  792,  867,  860,  861,
  /*    90 */   859,  863,  868,  951,  791,  827,  844,  826,  838,  843,
  /*   100 */   850,  842,  839,  829,  828,  830,  831,  951,  951,  951,
@@ -724,7 +724,7 @@ static const YYACTIONTYPE yy_default[] = {
  /*   160 */   951,  951,  951,  951,  951,  951,  951,  951,  951,  951,
  /*   170 */   951,  951,  951,  951,  951,  951,  951,  951,  951,  951,
  /*   180 */   951,  951,  638,  756,  756,  756,  632,  951,  951,  951,
- /*   190 */   943,  760,  750,  951,  951,  951,  951,  951,  951,  951,
+ /*   190 */   942,  760,  750,  951,  951,  951,  951,  951,  951,  951,
  /*   200 */   951,  951,  951,  951,  951,  800,  739,  917,  919,  951,
  /*   210 */   900,  737,  660,  758,  673,  748,  640,  794,  773,  773,
  /*   220 */   912,  794,  912,  696,  719,  951,  784,  951,  784,  693,
@@ -735,10 +735,10 @@ static const YYACTIONTYPE yy_default[] = {
  /*   270 */   727,  727,  727,  711,  876,  876,  872,  727,  696,  727,
  /*   280 */   711,  727,  727,  777,  772,  777,  772,  777,  772,  764,
  /*   290 */   764,  951,  789,  778,  787,  785,  794,  951,  714,  648,
- /*   300 */   648,  637,  637,  637,  637,  948,  948,  943,  698,  698,
+ /*   300 */   648,  637,  637,  637,  637,  947,  947,  942,  698,  698,
  /*   310 */   681,  951,  951,  951,  951,  951,  951,  951,  951,  881,
  /*   320 */   951,  951,  951,  951,  951,  951,  951,  951,  951,  951,
- /*   330 */   951,  951,  633,  938,  951,  951,  951,  951,  951,  951,
+ /*   330 */   951,  951,  633,  937,  951,  951,  951,  951,  951,  951,
  /*   340 */   799,  951,  951,  951,  951,  951,  951,  951,  951,  951,
  /*   350 */   951,  916,  951,  951,  951,  951,  951,  951,  951,  910,
  /*   360 */   951,  951,  951,  951,  951,  951,  903,  902,  951,  951,
@@ -747,10 +747,10 @@ static const YYACTIONTYPE yy_default[] = {
  /*   390 */   951,  951,  951,  951,  786,  951,  779,  951,  865,  951,
  /*   400 */   951,  951,  951,  951,  951,  951,  951,  951,  951,  742,
  /*   410 */   815,  951,  814,  818,  813,  665,  951,  646,  951,  629,
- /*   420 */   634,  947,  950,  949,  946,  945,  944,  939,  936,  935,
+ /*   420 */   634,  946,  949,  948,  945,  944,  943,  938,  936,  935,
  /*   430 */   933,  930,  926,  885,  883,  890,  889,  888,  887,  886,
  /*   440 */   884,  882,  880,  801,  796,  793,  925,  878,  738,  735,
- /*   450 */   734,  654,  940,  909,  918,  805,  804,  807,  915,  914,
+ /*   450 */   734,  654,  939,  909,  918,  805,  804,  807,  915,  914,
  /*   460 */   913,  911,  908,  895,  803,  802,  730,  870,  869,  657,
  /*   470 */   899,  898,  897,  901,  905,  896,  766,  656,  653,  662,
  /*   480 */   717,  718,  726,  724,  723,  722,  721,  720,  716,  664,
@@ -1306,20 +1306,20 @@ static const char *const yyRuleName[] = {
  /* 307 */ "cmd ::= ANALYZE",
  /* 308 */ "cmd ::= ANALYZE nm dbnm",
  /* 309 */ "cmd ::= ALTER TABLE fullname RENAME TO nm",
- /* 310 */ "cmd ::= ALTER TABLE fullname ADD CONSTRAINT nm expr",
- /* 311 */ "cmd ::= create_vtab",
- /* 312 */ "cmd ::= create_vtab LP vtabarglist RP",
- /* 313 */ "create_vtab ::= createkw VIRTUAL TABLE ifnotexists nm dbnm USING nm",
- /* 314 */ "vtabarglist ::= vtabarg",
- /* 315 */ "vtabarglist ::= vtabarglist COMMA vtabarg",
- /* 316 */ "vtabarg ::=",
- /* 317 */ "vtabarg ::= vtabarg vtabargtoken",
- /* 318 */ "vtabargtoken ::= ANY",
- /* 319 */ "vtabargtoken ::= lp anylist RP",
- /* 320 */ "lp ::= LP",
- /* 321 */ "anylist ::=",
- /* 322 */ "anylist ::= anylist LP anylist RP",
- /* 323 */ "anylist ::= anylist ANY",
+ /* 310 */ "cmd ::= create_vtab",
+ /* 311 */ "cmd ::= create_vtab LP vtabarglist RP",
+ /* 312 */ "create_vtab ::= createkw VIRTUAL TABLE ifnotexists nm dbnm USING nm",
+ /* 313 */ "vtabarglist ::= vtabarg",
+ /* 314 */ "vtabarglist ::= vtabarglist COMMA vtabarg",
+ /* 315 */ "vtabarg ::=",
+ /* 316 */ "vtabarg ::= vtabarg vtabargtoken",
+ /* 317 */ "vtabargtoken ::= ANY",
+ /* 318 */ "vtabargtoken ::= lp anylist RP",
+ /* 319 */ "lp ::= LP",
+ /* 320 */ "anylist ::=",
+ /* 321 */ "anylist ::= anylist LP anylist RP",
+ /* 322 */ "anylist ::= anylist ANY",
+ /* 323 */ "cmd ::= ALTER TABLE fullname ADD CONSTRAINT nm expr",
 };
 #endif /* NDEBUG */
 
@@ -2042,7 +2042,6 @@ static const struct {
   { 147, 1 },
   { 147, 3 },
   { 147, 6 },
-  { 147, 7 },
   { 147, 1 },
   { 147, 4 },
   { 242, 8 },
@@ -2056,6 +2055,7 @@ static const struct {
   { 247, 0 },
   { 247, 4 },
   { 247, 2 },
+  { 147, 7 },
 };
 
 static void yy_accept(yyParser*);  /* Forward Declaration */
@@ -3575,41 +3575,41 @@ static void yy_reduce(
 }
 #line 3577 "parse.c"
         break;
-      case 310: /* cmd ::= ALTER TABLE fullname ADD CONSTRAINT nm expr */
-#line 1375 "parse.y"
+      case 310: /* cmd ::= create_vtab */
+#line 1398 "parse.y"
+{sqlite3VtabFinishParse(pParse,0);}
+#line 3582 "parse.c"
+        break;
+      case 311: /* cmd ::= create_vtab LP vtabarglist RP */
+#line 1399 "parse.y"
+{sqlite3VtabFinishParse(pParse,&yymsp[0].minor.yy0);}
+#line 3587 "parse.c"
+        break;
+      case 312: /* create_vtab ::= createkw VIRTUAL TABLE ifnotexists nm dbnm USING nm */
+#line 1401 "parse.y"
+{
+    sqlite3VtabBeginParse(pParse, &yymsp[-3].minor.yy0, &yymsp[-2].minor.yy0, &yymsp[0].minor.yy0, yymsp[-4].minor.yy316);
+}
+#line 3594 "parse.c"
+        break;
+      case 315: /* vtabarg ::= */
+#line 1406 "parse.y"
+{sqlite3VtabArgInit(pParse);}
+#line 3599 "parse.c"
+        break;
+      case 317: /* vtabargtoken ::= ANY */
+      case 318: /* vtabargtoken ::= lp anylist RP */ yytestcase(yyruleno==318);
+      case 319: /* lp ::= LP */ yytestcase(yyruleno==319);
+#line 1408 "parse.y"
+{sqlite3VtabArgExtend(pParse,&yymsp[0].minor.yy0);}
+#line 3606 "parse.c"
+        break;
+      case 323: /* cmd ::= ALTER TABLE fullname ADD CONSTRAINT nm expr */
+#line 1422 "parse.y"
 {
   pParse->constraintName = yymsp[-1].minor.yy0;
   sqlite3AddConstraintgrk(pParse,yymsp[-4].minor.yy419,yymsp[0].minor.yy86.pExpr);
 }
-#line 3585 "parse.c"
-        break;
-      case 311: /* cmd ::= create_vtab */
-#line 1395 "parse.y"
-{sqlite3VtabFinishParse(pParse,0);}
-#line 3590 "parse.c"
-        break;
-      case 312: /* cmd ::= create_vtab LP vtabarglist RP */
-#line 1396 "parse.y"
-{sqlite3VtabFinishParse(pParse,&yymsp[0].minor.yy0);}
-#line 3595 "parse.c"
-        break;
-      case 313: /* create_vtab ::= createkw VIRTUAL TABLE ifnotexists nm dbnm USING nm */
-#line 1398 "parse.y"
-{
-    sqlite3VtabBeginParse(pParse, &yymsp[-3].minor.yy0, &yymsp[-2].minor.yy0, &yymsp[0].minor.yy0, yymsp[-4].minor.yy316);
-}
-#line 3602 "parse.c"
-        break;
-      case 316: /* vtabarg ::= */
-#line 1403 "parse.y"
-{sqlite3VtabArgInit(pParse);}
-#line 3607 "parse.c"
-        break;
-      case 318: /* vtabargtoken ::= ANY */
-      case 319: /* vtabargtoken ::= lp anylist RP */ yytestcase(yyruleno==319);
-      case 320: /* lp ::= LP */ yytestcase(yyruleno==320);
-#line 1405 "parse.y"
-{sqlite3VtabArgExtend(pParse,&yymsp[0].minor.yy0);}
 #line 3614 "parse.c"
         break;
       default:
@@ -3640,12 +3640,12 @@ static void yy_reduce(
       /* (285) tridxby ::= */ yytestcase(yyruleno==285);
       /* (303) database_kw_opt ::= DATABASE */ yytestcase(yyruleno==303);
       /* (304) database_kw_opt ::= */ yytestcase(yyruleno==304);
-      /* (314) vtabarglist ::= vtabarg */ yytestcase(yyruleno==314);
-      /* (315) vtabarglist ::= vtabarglist COMMA vtabarg */ yytestcase(yyruleno==315);
-      /* (317) vtabarg ::= vtabarg vtabargtoken */ yytestcase(yyruleno==317);
-      /* (321) anylist ::= */ yytestcase(yyruleno==321);
-      /* (322) anylist ::= anylist LP anylist RP */ yytestcase(yyruleno==322);
-      /* (323) anylist ::= anylist ANY */ yytestcase(yyruleno==323);
+      /* (313) vtabarglist ::= vtabarg */ yytestcase(yyruleno==313);
+      /* (314) vtabarglist ::= vtabarglist COMMA vtabarg */ yytestcase(yyruleno==314);
+      /* (316) vtabarg ::= vtabarg vtabargtoken */ yytestcase(yyruleno==316);
+      /* (320) anylist ::= */ yytestcase(yyruleno==320);
+      /* (321) anylist ::= anylist LP anylist RP */ yytestcase(yyruleno==321);
+      /* (322) anylist ::= anylist ANY */ yytestcase(yyruleno==322);
         break;
   };
   assert( yyruleno>=0 && yyruleno<sizeof(yyRuleInfo)/sizeof(yyRuleInfo[0]) );

@@ -386,6 +386,15 @@ static int isSystemTable(Parse *pParse, const char *zName){
   return 0;
 }
 
+
+void sqlite3AddConstraintgrk(void *ptr1, void *ptr2, void *ptr3)
+{
+
+    printf(" Work In progress, Come back again\n");
+    return ;
+}
+
+
 /*
 ** Generate code to implement the "ALTER TABLE xxx RENAME TO yyy" 
 ** command. 

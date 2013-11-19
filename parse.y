@@ -1372,10 +1372,12 @@ cmd ::= ALTER TABLE fullname(X) RENAME TO nm(Z). {
   sqlite3AlterRenameTable(pParse,X,&Z);
 }
 
+/*
 cmd ::= ALTER TABLE fullname(X) ADD CONSTRAINT nm(Y) expr(A). {
   pParse->constraintName = Y;
   sqlite3AddConstraintgrk(pParse,X,A.pExpr);
 }
+*/
 
 /*
 cmd ::= ALTER TABLE add_column_fullname ADD kwcolumn_opt column(Y). {
@@ -1388,6 +1390,7 @@ add_column_fullname ::= fullname(X). {
 kwcolumn_opt ::= .
 kwcolumn_opt ::= COLUMNKW.
 */
+
 %endif  SQLITE_OMIT_ALTERTABLE
 
 //////////////////////// CREATE VIRTUAL TABLE ... /////////////////////////////
@@ -1409,3 +1412,18 @@ anylist ::= .
 anylist ::= anylist LP anylist RP.
 anylist ::= anylist ANY.
 %endif  SQLITE_OMIT_VIRTUALTABLE
+
+/////////////////////////// OUR NEW FEATURE ///////////////////////////////////////
+
+
+
+%ifndef SQLITE_NEW_ALTERTABLE
+
+cmd ::= ALTER TABLE fullname(X) ADD CONSTRAINT nm(Y) expr(A). {
+  pParse->constraintName = Y;
+  sqlite3AddConstraintgrk(pParse,X,A.pExpr);
+}
+
+%endif  SQLITE_NEW_ALTERTABLE
+
+
