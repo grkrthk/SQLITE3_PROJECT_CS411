@@ -387,11 +387,42 @@ static int isSystemTable(Parse *pParse, const char *zName){
 }
 
 
-void sqlite3AddConstraintgrk(void *ptr1, void *ptr2, void *ptr3)
+void sqlite3AddConstraintgrk(Parse *pParse, SrcList *pSrc, Expr *pExpr)
 {
 
-    printf(" Work In progress, Come back again\n");
-    return ;
+// pSrc : Table that needs to have the constraint added
+// pExpr : Expression that needs to be added
+// first step : get the table we are operating on
+   sqlite3 *db = pParse->db;
+   char zName[10] = "EMP";
+   Vdbe *v;
+   int iDb;
+   Table *pTab;
+   pTab = sqlite3LocateTableItem(pParse, 0,&pSrc->a[0]);
+//   Token *pName = &pSrc->a[0];
+   if(!pTab){
+         goto error_handler;
+   }
+// Second step : fetch the relevant index pertaining to this schema
+   iDb = sqlite3SchemaToIndex(pParse->db, pTab->pSchema);
+//   zName = sqlite3NameFromToken(db, pName);
+
+// Third step : adding the expr to pcheck  
+   pTab->pCheck = sqlite3ExprListAppend(pParse, pTab->pCheck, pExpr);
+   if(pParse->constraintName.n){
+       sqlite3ExprListSetName(pParse, pTab->pCheck, &pParse->constraintName, 1);
+   } 
+   v = sqlite3GetVdbe(pParse);
+   if(v ==0 ){
+         goto error_handler;
+   }
+   sqlite3BeginWriteOperation(pParse,0,iDb);    
+   sqlite3ChangeCookie(pParse, iDb);
+//   reloadTableSchema(pParse, pTab, zName);   
+   error_handler:
+
+   printf(" Work In progress, Come back again\n");
+   return ;
 }
 
 
@@ -412,6 +443,7 @@ void sqlite3AlterRenameTable(
   int nTabName;             /* Number of UTF-8 characters in zTabName */
   const char *zTabName;     /* Original name of the table */
   Vdbe *v;
+//  sqlite3AddConstraintgrk(zDb,pTab,zName); // dummy addition to see if the function appears in gdb
 #ifndef SQLITE_OMIT_TRIGGER
   char *zWhere = 0;         /* Where clause to locate temp triggers */
 #endif
