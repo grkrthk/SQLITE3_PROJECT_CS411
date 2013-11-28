@@ -2310,6 +2310,7 @@ struct Parse {
   TriggerPrg *pTriggerPrg;  /* Linked list of coded triggers */
 
   struct ExprSpan* expression_buf; /* expression to hold our new feature */
+  Token check_constraint;  /* check constrint : for our new feature */
 };
 
 /*
