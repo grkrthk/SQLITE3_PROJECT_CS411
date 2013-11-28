@@ -387,12 +387,14 @@ static int isSystemTable(Parse *pParse, const char *zName){
 }
 
 
-void sqlite3AddConstraintgrk(Parse *pParse, SrcList *pSrc, Expr *pExpr)
+void sqlite3AddConstraintgrk(Parse *pParse) //, SrcList *pSrc, Expr *pExpr)
 {
 
 // pSrc : Table that needs to have the constraint added
 // pExpr : Expression that needs to be added
 // first step : get the table we are operating on
+
+/*
    sqlite3 *db = pParse->db;
    char zName[10] = "EMP";
    Vdbe *v;
@@ -420,7 +422,7 @@ void sqlite3AddConstraintgrk(Parse *pParse, SrcList *pSrc, Expr *pExpr)
    sqlite3ChangeCookie(pParse, iDb);
 //   reloadTableSchema(pParse, pTab, zName);   
    error_handler:
-
+*/
    printf(" Work In progress, Come back again\n");
    return ;
 }

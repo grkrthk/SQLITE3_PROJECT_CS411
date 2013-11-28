@@ -1379,7 +1379,7 @@ cmd ::= ALTER TABLE fullname(X) ADD CONSTRAINT nm(Y) expr(A). {
 }
 */
 
-/*
+
 cmd ::= ALTER TABLE add_column_fullname ADD kwcolumn_opt column(Y). {
   sqlite3AlterFinishAddColumn(pParse, &Y);
 }
@@ -1389,7 +1389,13 @@ add_column_fullname ::= fullname(X). {
 }
 kwcolumn_opt ::= .
 kwcolumn_opt ::= COLUMNKW.
-*/
+
+cmd ::= ALTER TABLE add_column_fullname ADD CONSTRAINT nm(Y) carglist. {
+  pParse->constraintName = Y;
+  sqlite3AddConstraintgrk(pParse);
+  sqlite3AlterFinishAddColumn(pParse, &Y);
+}
+
 
 %endif  SQLITE_OMIT_ALTERTABLE
 
@@ -1416,7 +1422,7 @@ anylist ::= anylist ANY.
 /////////////////////////// OUR NEW FEATURE ///////////////////////////////////////
 
 
-
+/*
 %ifndef SQLITE_NEW_ALTERTABLE
 
 cmd ::= ALTER TABLE fullname(X) ADD CONSTRAINT nm(Y) expr(A). {
@@ -1425,5 +1431,5 @@ cmd ::= ALTER TABLE fullname(X) ADD CONSTRAINT nm(Y) expr(A). {
 }
 
 %endif  SQLITE_NEW_ALTERTABLE
-
+*/
 
