@@ -2308,6 +2308,8 @@ struct Parse {
 #endif
   Table *pZombieTab;        /* List of Table objects to delete after code gen */
   TriggerPrg *pTriggerPrg;  /* Linked list of coded triggers */
+
+  struct ExprSpan* expression_buf; /* expression to hold our new feature */
 };
 
 /*

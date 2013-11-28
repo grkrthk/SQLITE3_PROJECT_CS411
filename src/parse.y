@@ -301,7 +301,14 @@ ccons ::= NOT NULL onconf(R).    {sqlite3AddNotNull(pParse, R);}
 ccons ::= PRIMARY KEY sortorder(Z) onconf(R) autoinc(I).
                                  {sqlite3AddPrimaryKey(pParse,0,R,I,Z);}
 ccons ::= UNIQUE onconf(R).      {sqlite3CreateIndex(pParse,0,0,0,0,R,0,0,0,0);}
-ccons ::= CHECK LP expr(X) RP.   {sqlite3AddCheckConstraint(pParse,X.pExpr);}
+ccons ::= CHECK LP expr(X) RP.   {pParse->expression_buf = &X;
+                                  sqlite3AddCheckConstraint(pParse,X.pExpr);}
+
+
+//ccons ::= nm(Y) CHECK LP expr(X) RP.   { pParse->constraintName.n = Y;
+//                                         sqlite3AddCheckConstraint(pParse,X.pExpr);}
+
+
 ccons ::= REFERENCES nm(T) idxlist_opt(TA) refargs(R).
                                  {sqlite3CreateForeignKey(pParse,0,&T,TA,R);}
 ccons ::= defer_subclause(D).    {sqlite3DeferForeignKey(pParse,D);}
@@ -1392,12 +1399,14 @@ kwcolumn_opt ::= COLUMNKW.
 
 //alter table emplyee add constraint contra check (age>30); remove nm(Y)
 
-cmd ::= ALTER TABLE add_column_fullname ADD CONSTRAINT  carglist(Y). {
+cmd ::= ALTER TABLE add_column_fullname ADD CONSTRAINT carglist(Y). {
   pParse->constraintName = Y;
   sqlite3AddConstraintgrk(pParse);
   sqlite3AlterFinishAddColumn(pParse, &Y);
 }
 
+
+// kcons ::= CONSTRAINT nm(X).           {pParse->constraintName = X;}
 
 %endif  SQLITE_OMIT_ALTERTABLE
 
