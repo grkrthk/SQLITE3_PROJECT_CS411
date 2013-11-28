@@ -1390,6 +1390,8 @@ add_column_fullname ::= fullname(X). {
 kwcolumn_opt ::= .
 kwcolumn_opt ::= COLUMNKW.
 
+//alter table emplyee add constraint contra check (age>30);
+
 cmd ::= ALTER TABLE add_column_fullname ADD CONSTRAINT nm(Y) carglist. {
   pParse->constraintName = Y;
   sqlite3AddConstraintgrk(pParse);
