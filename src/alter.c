@@ -664,6 +664,12 @@ void sqlite3MinimumFileFormat(Parse *pParse, int iDb, int minFormat){
 ** the new column during parsing.
 */
 void sqlite3AlterFinishAddColumn(Parse *pParse, Token *pColDef){
+
+  char temp_buf[100]="check (age>30);";
+  pColDef->z = (char *)malloc(100);
+  pColDef->n = strlen(temp_buf);
+  strcpy((char *)pColDef->z,temp_buf);
+ 
   Table *pNew;              /* Copy of pParse->pNewTable */
   Table *pTab;              /* Table being altered */
   int iDb;                  /* Database number */
