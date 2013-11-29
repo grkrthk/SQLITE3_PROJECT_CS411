@@ -1394,19 +1394,19 @@ add_column_fullname ::= fullname(X). {
   pParse->db->lookaside.bEnabled = 0;
   sqlite3AlterBeginAddColumn(pParse, X);
 }
-kwcolumn_opt ::= .
+//kwcolumn_opt ::= .
 kwcolumn_opt ::= COLUMNKW.
 
 //alter table emplyee add constraint contra check (age>30); remove nm(Y)
 
-cmd ::= ALTER TABLE add_column_fullname ADD CONSTRAINT fullname_grk carglist(Y). {
+cmd ::= ALTER TABLE add_column_fullname ADD fullname_grk carglist(Y). {
  // pParse->constraintName = &X;
   sqlite3AddConstraintgrk(pParse);
   sqlite3AlterFinishAddColumn(pParse, &Y);
 }
 
-
-fullname_grk::= ANY(X).  {pParse->check_constraint  = X;}
+ 
+fullname_grk::= CONSTRAINT ANY(X).  {pParse->check_constraint  = X;}
 
 
 %endif  SQLITE_OMIT_ALTERTABLE

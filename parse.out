@@ -9,7 +9,7 @@ State 0:
           explain ::= * EXPLAIN QUERY PLAN
 
                           SEMI shift  630
-                       EXPLAIN shift  333
+                       EXPLAIN shift  332
                          input accept
                        cmdlist shift  185
                           ecmd shift  421
@@ -97,7 +97,7 @@ State 1:
                       VARIABLE shift  593
                           CASE shift  13
                             nm shift  413
-                        select shift  202
+                        select shift  203
                             id shift  416
                           term shift  603
                           expr shift  92
@@ -152,39 +152,39 @@ State 2:
           cmd ::= * ANALYZE nm dbnm
           cmd ::= * ALTER TABLE fullname RENAME TO nm
           cmd ::= * ALTER TABLE add_column_fullname ADD kwcolumn_opt column
-          cmd ::= * ALTER TABLE add_column_fullname ADD CONSTRAINT fullname_grk carglist
+          cmd ::= * ALTER TABLE add_column_fullname ADD fullname_grk carglist
           cmd ::= * create_vtab
           cmd ::= * create_vtab LP vtabarglist RP
           create_vtab ::= * createkw VIRTUAL TABLE ifnotexists nm dbnm USING nm
 
-                         BEGIN shift  215
-                        COMMIT shift  304
-                           END shift  303
-                      ROLLBACK shift  302
+                         BEGIN shift  216
+                        COMMIT shift  303
+                           END shift  302
+                      ROLLBACK shift  301
                      SAVEPOINT shift  179
-                       RELEASE shift  300
+                       RELEASE shift  299
                         CREATE shift  456
                        ANALYZE shift  151
-                        ATTACH shift  243
-                        DETACH shift  242
+                        ATTACH shift  242
+                        DETACH shift  241
                         PRAGMA shift  153
                        REPLACE shift  469
                         VACUUM shift  154
                        REINDEX shift  152
-                        INSERT shift  257
+                        INSERT shift  256
                         DELETE shift  345
-                        UPDATE shift  246
-                          DROP shift  314
+                        UPDATE shift  245
+                          DROP shift  313
                         SELECT shift  237
                          ALTER shift  338
                           cmdx shift  420
                            cmd shift  628
                   create_table shift  238
                       createkw shift  123
-                        select shift  205
+                        select shift  206
                      oneselect shift  602
                     insert_cmd shift  343
-                   create_vtab shift  334
+                   create_vtab shift  333
 
 State 3:
           id ::= * ID
@@ -263,7 +263,7 @@ State 3:
                       VARIABLE shift  593
                           CASE shift  13
                             nm shift  413
-                        select shift  203
+                        select shift  204
                             id shift  416
                           term shift  603
                           expr shift  74
@@ -575,7 +575,7 @@ State 9:
           expr ::= expr * in_op LP select RP
           expr ::= expr * in_op nm dbnm
 
-                           NOT shift  313
+                           NOT shift  312
                             AS shift  172
                             ID shift  599
                        LIKE_KW shift  592
@@ -689,7 +689,7 @@ State 10:
                             id shift  416
                           term shift  603
                           expr shift  92
-                     nexprlist shift  321
+                     nexprlist shift  320
 
 State 11:
           id ::= * ID
@@ -926,7 +926,7 @@ State 13:
                             id shift  416
                           term shift  603
                           expr shift  91
-                  case_operand shift  292
+                  case_operand shift  291
                      {default} reduce 237
 
 State 14:
@@ -945,11 +945,11 @@ State 14:
           trigger_cmd ::= * select
 
                        REPLACE shift  469
-                        INSERT shift  257
+                        INSERT shift  256
                         DELETE shift  350
-                        UPDATE shift  256
+                        UPDATE shift  255
                         SELECT shift  237
-                        select shift  207
+                        select shift  208
                      oneselect shift  602
                     insert_cmd shift  355
               trigger_cmd_list shift  62
@@ -972,7 +972,7 @@ State 15:
                         STRING shift  622
                        JOIN_KW shift  621
                             nm shift  494
-                    columnlist shift  299
+                    columnlist shift  298
                         column shift  484
                       columnid shift  67
                             id shift  623
@@ -1010,7 +1010,7 @@ State 16:
           expr ::= expr * in_op LP select RP
           expr ::= expr * in_op nm dbnm
 
-                           NOT shift  313
+                           NOT shift  312
                            ASC shift  556
                           DESC shift  555
                        LIKE_KW shift  592
@@ -1078,7 +1078,7 @@ State 17:
           expr ::= expr * in_op LP select RP
           expr ::= expr * in_op nm dbnm
 
-                           NOT shift  313
+                           NOT shift  312
                            ASC shift  556
                           DESC shift  555
                        LIKE_KW shift  592
@@ -1145,7 +1145,7 @@ State 18:
     (301) key_opt ::= *
           key_opt ::= * KEY expr
 
-                           NOT shift  313
+                           NOT shift  312
                        LIKE_KW shift  592
                          MATCH shift  586
                            KEY shift  21
@@ -4472,11 +4472,11 @@ State 62:
 
                            END shift  468
                        REPLACE shift  469
-                        INSERT shift  257
+                        INSERT shift  256
                         DELETE shift  350
-                        UPDATE shift  256
+                        UPDATE shift  255
                         SELECT shift  237
-                        select shift  207
+                        select shift  208
                      oneselect shift  602
                     insert_cmd shift  355
                    trigger_cmd shift  362
@@ -4510,13 +4510,13 @@ State 64:
           cmd ::= ALTER TABLE * fullname RENAME TO nm
           cmd ::= ALTER TABLE * add_column_fullname ADD kwcolumn_opt column
           add_column_fullname ::= * fullname
-          cmd ::= ALTER TABLE * add_column_fullname ADD CONSTRAINT fullname_grk carglist
+          cmd ::= ALTER TABLE * add_column_fullname ADD fullname_grk carglist
 
                             ID shift  625
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  263
+                            nm shift  262
                             id shift  623
                       fullname shift  337
            add_column_fullname shift  335
@@ -4553,7 +4553,7 @@ State 66:
                          MINUS shift  233
                        INTEGER shift  574
                          FLOAT shift  574
-                        signed shift  331
+                        signed shift  330
                       plus_num shift  577
                      minus_num shift  576
                         number shift  573
@@ -4571,10 +4571,10 @@ State 67:
 
                             ID shift  599
                         STRING shift  599
-                          type shift  312
+                          type shift  311
                            ids shift  570
                      typetoken shift  495
-                      typename shift  213
+                      typename shift  214
                      {default} reduce 44
 
 State 68:
@@ -4590,9 +4590,9 @@ State 68:
           seltablist ::= stl_prefix LP * seltablist RP as on_opt using_opt
 
                         SELECT shift  237
-                        select shift  199
+                        select shift  200
                      oneselect shift  602
-                    seltablist shift  198
+                    seltablist shift  199
                     stl_prefix shift  144
                      {default} reduce 133
 
@@ -4628,7 +4628,7 @@ State 69:
           expr ::= expr * in_op LP select RP
           expr ::= expr * in_op nm dbnm
 
-                           NOT shift  313
+                           NOT shift  312
                          COMMA shift  33
                        LIKE_KW shift  592
                          MATCH shift  586
@@ -4692,7 +4692,7 @@ State 70:
           expr ::= expr * in_op nm dbnm
           cmd ::= ATTACH database_kw_opt expr * AS expr key_opt
 
-                           NOT shift  313
+                           NOT shift  312
                             AS shift  22
                        LIKE_KW shift  592
                          MATCH shift  586
@@ -4754,8 +4754,8 @@ State 71:
           expr ::= expr * in_op LP select RP
           expr ::= expr * in_op nm dbnm
 
-                           NOT shift  313
-                            RP shift  271
+                           NOT shift  312
+                            RP shift  270
                        LIKE_KW shift  592
                          MATCH shift  586
                             OR shift  57
@@ -4816,7 +4816,7 @@ State 72:
           expr ::= expr * in_op LP select RP
           expr ::= expr * in_op nm dbnm
 
-                           NOT shift  313
+                           NOT shift  312
                             RP shift  513
                        LIKE_KW shift  592
                          MATCH shift  586
@@ -4878,7 +4878,7 @@ State 73:
           expr ::= expr * in_op LP select RP
           expr ::= expr * in_op nm dbnm
 
-                           NOT shift  313
+                           NOT shift  312
                             RP shift  530
                        LIKE_KW shift  592
                          MATCH shift  586
@@ -4940,7 +4940,7 @@ State 74:
           expr ::= expr * in_op LP select RP
           expr ::= expr * in_op nm dbnm
 
-                           NOT shift  313
+                           NOT shift  312
                             RP shift  533
                        LIKE_KW shift  592
                          MATCH shift  586
@@ -5002,7 +5002,7 @@ State 75:
           expr ::= expr * in_op nm dbnm
           case_exprlist ::= WHEN expr * THEN expr
 
-                           NOT shift  313
+                           NOT shift  312
                        LIKE_KW shift  592
                          MATCH shift  586
                             OR shift  57
@@ -5064,7 +5064,7 @@ State 76:
           expr ::= expr * in_op nm dbnm
           case_exprlist ::= case_exprlist WHEN expr * THEN expr
 
-                           NOT shift  313
+                           NOT shift  312
                        LIKE_KW shift  592
                          MATCH shift  586
                             OR shift  57
@@ -5126,7 +5126,7 @@ State 77:
           expr ::= expr * in_op LP select RP
           expr ::= expr * in_op nm dbnm
 
-                           NOT shift  313
+                           NOT shift  312
                             AS shift  132
                        LIKE_KW shift  592
                          MATCH shift  586
@@ -5188,7 +5188,7 @@ State 78:
           expr ::= expr * in_op nm dbnm
     (300) cmd ::= DETACH database_kw_opt expr *
 
-                           NOT shift  313
+                           NOT shift  312
                        LIKE_KW shift  592
                          MATCH shift  586
                             OR shift  57
@@ -5250,7 +5250,7 @@ State 79:
           expr ::= expr * in_op nm dbnm
     (302) key_opt ::= KEY expr *
 
-                           NOT shift  313
+                           NOT shift  312
                        LIKE_KW shift  592
                          MATCH shift  586
                             OR shift  57
@@ -5312,7 +5312,7 @@ State 80:
           expr ::= expr * in_op LP select RP
           expr ::= expr * in_op nm dbnm
 
-                           NOT shift  313
+                           NOT shift  312
                        LIKE_KW shift  592
                          MATCH shift  586
                             OR shift  57
@@ -5374,7 +5374,7 @@ State 81:
           expr ::= expr * in_op LP select RP
           expr ::= expr * in_op nm dbnm
 
-                           NOT shift  313
+                           NOT shift  312
                        LIKE_KW shift  592
                          MATCH shift  586
                             OR shift  57
@@ -5436,7 +5436,7 @@ State 82:
           expr ::= expr * in_op nm dbnm
     (280) when_clause ::= WHEN expr *
 
-                           NOT shift  313
+                           NOT shift  312
                        LIKE_KW shift  592
                          MATCH shift  586
                             OR shift  57
@@ -5498,7 +5498,7 @@ State 83:
           expr ::= expr * in_op LP select RP
           expr ::= expr * in_op nm dbnm
 
-                           NOT shift  313
+                           NOT shift  312
                        LIKE_KW shift  592
                          MATCH shift  586
                             OR shift  57
@@ -5560,7 +5560,7 @@ State 84:
           expr ::= expr * in_op LP select RP
           expr ::= expr * in_op nm dbnm
 
-                           NOT shift  313
+                           NOT shift  312
                        LIKE_KW shift  592
                          MATCH shift  586
                             OR shift  57
@@ -5622,7 +5622,7 @@ State 85:
           expr ::= expr * in_op LP select RP
           expr ::= expr * in_op nm dbnm
 
-                           NOT shift  313
+                           NOT shift  312
                        LIKE_KW shift  592
                          MATCH shift  586
                             OR shift  57
@@ -5684,7 +5684,7 @@ State 86:
           expr ::= expr * in_op LP select RP
           expr ::= expr * in_op nm dbnm
 
-                           NOT shift  313
+                           NOT shift  312
                        LIKE_KW shift  592
                          MATCH shift  586
                             OR shift  57
@@ -5746,7 +5746,7 @@ State 87:
           expr ::= expr * in_op nm dbnm
     (240) nexprlist ::= nexprlist COMMA expr *
 
-                           NOT shift  313
+                           NOT shift  312
                        LIKE_KW shift  592
                          MATCH shift  586
                             OR shift  57
@@ -5808,7 +5808,7 @@ State 88:
           expr ::= expr * in_op nm dbnm
     (233) case_exprlist ::= WHEN expr THEN expr *
 
-                           NOT shift  313
+                           NOT shift  312
                        LIKE_KW shift  592
                          MATCH shift  586
                             OR shift  57
@@ -5870,7 +5870,7 @@ State 89:
           expr ::= expr * in_op nm dbnm
     (234) case_else ::= ELSE expr *
 
-                           NOT shift  313
+                           NOT shift  312
                        LIKE_KW shift  592
                          MATCH shift  586
                             OR shift  57
@@ -5932,7 +5932,7 @@ State 90:
           expr ::= expr * in_op nm dbnm
     (232) case_exprlist ::= case_exprlist WHEN expr THEN expr *
 
-                           NOT shift  313
+                           NOT shift  312
                        LIKE_KW shift  592
                          MATCH shift  586
                             OR shift  57
@@ -5994,7 +5994,7 @@ State 91:
           expr ::= expr * in_op nm dbnm
     (236) case_operand ::= expr *
 
-                           NOT shift  313
+                           NOT shift  312
                        LIKE_KW shift  592
                          MATCH shift  586
                             OR shift  57
@@ -6056,7 +6056,7 @@ State 92:
           expr ::= expr * in_op nm dbnm
     (241) nexprlist ::= expr *
 
-                           NOT shift  313
+                           NOT shift  312
                        LIKE_KW shift  592
                          MATCH shift  586
                             OR shift  57
@@ -6118,7 +6118,7 @@ State 93:
           expr ::= expr * in_op LP select RP
           expr ::= expr * in_op nm dbnm
 
-                           NOT shift  313
+                           NOT shift  312
                        LIKE_KW shift  592
                          MATCH shift  586
                             OR shift  57
@@ -6179,7 +6179,7 @@ State 94:
           expr ::= expr * in_op LP select RP
           expr ::= expr * in_op nm dbnm
 
-                           NOT shift  313
+                           NOT shift  312
                        LIKE_KW shift  592
                          MATCH shift  586
                             OR shift  57
@@ -6241,7 +6241,7 @@ State 95:
           expr ::= expr * in_op LP select RP
           expr ::= expr * in_op nm dbnm
 
-                           NOT shift  313
+                           NOT shift  312
                        LIKE_KW shift  592
                          MATCH shift  586
                            AND shift  58
@@ -6302,7 +6302,7 @@ State 96:
           expr ::= expr * in_op LP select RP
           expr ::= expr * in_op nm dbnm
 
-                           NOT shift  313
+                           NOT shift  312
                        LIKE_KW shift  592
                          MATCH shift  586
                             IS shift  48
@@ -6362,7 +6362,7 @@ State 97:
           expr ::= expr * in_op LP select RP
           expr ::= expr * in_op nm dbnm
 
-                           NOT shift  313
+                           NOT shift  312
                        LIKE_KW shift  592
                          MATCH shift  586
                             IS shift  48
@@ -6839,9 +6839,9 @@ State 107:
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  263
+                            nm shift  262
                             id shift  623
-                      fullname shift  245
+                      fullname shift  244
 
 State 108:
           id ::= * ID
@@ -6874,7 +6874,7 @@ State 109:
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  263
+                            nm shift  262
                             id shift  623
                       fullname shift  218
 
@@ -6891,7 +6891,7 @@ State 110:
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  263
+                            nm shift  262
                             id shift  623
                       fullname shift  219
 
@@ -6908,7 +6908,7 @@ State 111:
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  263
+                            nm shift  262
                             id shift  623
                       fullname shift  451
 
@@ -6925,7 +6925,7 @@ State 112:
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  263
+                            nm shift  262
                             id shift  623
                       fullname shift  452
 
@@ -6942,7 +6942,7 @@ State 113:
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  263
+                            nm shift  262
                             id shift  623
                       fullname shift  453
 
@@ -6959,7 +6959,7 @@ State 114:
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  263
+                            nm shift  262
                             id shift  623
                       fullname shift  455
 
@@ -6997,7 +6997,7 @@ State 116:
                        JOIN_KW shift  621
                             nm shift  542
                             id shift  623
-                    inscollist shift  322
+                    inscollist shift  321
 
 State 117:
           id ::= * ID
@@ -7016,7 +7016,7 @@ State 117:
                        JOIN_KW shift  621
                             nm shift  361
                             id shift  623
-                          trnm shift  255
+                          trnm shift  254
 
 State 118:
           id ::= * ID
@@ -7068,9 +7068,9 @@ State 120:
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  275
+                            nm shift  274
                             id shift  623
-                       idxlist shift  323
+                       idxlist shift  322
 
 State 121:
           id ::= * ID
@@ -7103,9 +7103,9 @@ State 122:
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  263
+                            nm shift  262
                             id shift  623
-                      fullname shift  262
+                      fullname shift  261
 
 State 123:
           create_table ::= createkw * temp TABLE ifnotexists nm dbnm
@@ -7123,7 +7123,7 @@ State 123:
                        VIRTUAL shift  348
                         UNIQUE shift  472
                          INDEX reduce 244
-                          temp shift  317
+                          temp shift  316
                     uniqueflag shift  366
                   trigger_decl shift  363
                      {default} reduce 31
@@ -7142,8 +7142,8 @@ State 124:
 
                            NOT shift  376
                          MATCH shift  168
-                            ON shift  318
-                    DEFERRABLE shift  274
+                            ON shift  317
+                    DEFERRABLE shift  273
                defer_subclause shift  487
                         refarg shift  512
            defer_subclause_opt shift  488
@@ -7163,9 +7163,9 @@ State 125:
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  275
+                            nm shift  274
                             id shift  623
-                       idxlist shift  324
+                       idxlist shift  323
 
 State 126:
           id ::= * ID
@@ -7181,9 +7181,9 @@ State 126:
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  275
+                            nm shift  274
                             id shift  623
-                       idxlist shift  325
+                       idxlist shift  324
 
 State 127:
           id ::= * ID
@@ -7199,7 +7199,7 @@ State 127:
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  275
+                            nm shift  274
                             id shift  623
                        idxlist shift  223
 
@@ -7217,9 +7217,9 @@ State 128:
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  275
+                            nm shift  274
                             id shift  623
-                       idxlist shift  326
+                       idxlist shift  325
 
 State 129:
           id ::= * ID
@@ -7237,7 +7237,7 @@ State 129:
                        JOIN_KW shift  621
                             nm shift  542
                             id shift  623
-                    inscollist shift  330
+                    inscollist shift  329
 
 State 130:
           select ::= * oneselect
@@ -7252,7 +7252,7 @@ State 130:
                        DEFAULT shift  341
                         SELECT shift  237
                         VALUES shift  354
-                        select shift  204
+                        select shift  205
                      oneselect shift  602
                      valuelist shift  342
 
@@ -7267,7 +7267,7 @@ State 131:
 
                         SELECT shift  237
                         VALUES shift  354
-                        select shift  206
+                        select shift  207
                      oneselect shift  602
                      valuelist shift  353
 
@@ -7284,7 +7284,7 @@ State 132:
                         STRING shift  599
                            ids shift  570
                      typetoken shift  408
-                      typename shift  213
+                      typename shift  214
 
 State 133:
           expr ::= expr * COLLATE ids
@@ -7481,8 +7481,8 @@ State 138:
                             ID shift  625
                        INDEXED shift  624
                       CTIME_KW shift  568
-                          PLUS shift  193
-                         MINUS shift  192
+                          PLUS shift  194
+                         MINUS shift  193
                         STRING shift  528
                           NULL shift  597
                        INTEGER shift  595
@@ -7509,21 +7509,21 @@ State 139:
           ccons ::= * COLLATE ids
           defer_subclause ::= * NOT DEFERRABLE init_deferred_pred_opt
           defer_subclause ::= * DEFERRABLE init_deferred_pred_opt
-    (314) cmd ::= ALTER TABLE add_column_fullname ADD CONSTRAINT fullname_grk carglist *
+    (313) cmd ::= ALTER TABLE add_column_fullname ADD fullname_grk carglist *
 
-                           NOT shift  329
+                           NOT shift  328
                        COLLATE shift  225
                     CONSTRAINT shift  177
                        DEFAULT shift  138
-                          NULL shift  283
+                          NULL shift  282
                        PRIMARY shift  387
-                        UNIQUE shift  278
+                        UNIQUE shift  277
                          CHECK shift  386
                     REFERENCES shift  169
-                    DEFERRABLE shift  274
+                    DEFERRABLE shift  273
                          ccons shift  608
                defer_subclause shift  498
-                     {default} reduce 314
+                     {default} reduce 313
 
 State 140:
      (36) column ::= columnid type carglist *
@@ -7545,16 +7545,16 @@ State 140:
           defer_subclause ::= * NOT DEFERRABLE init_deferred_pred_opt
           defer_subclause ::= * DEFERRABLE init_deferred_pred_opt
 
-                           NOT shift  329
+                           NOT shift  328
                        COLLATE shift  225
                     CONSTRAINT shift  177
                        DEFAULT shift  138
-                          NULL shift  283
+                          NULL shift  282
                        PRIMARY shift  387
-                        UNIQUE shift  278
+                        UNIQUE shift  277
                          CHECK shift  386
                     REFERENCES shift  169
-                    DEFERRABLE shift  274
+                    DEFERRABLE shift  273
                          ccons shift  608
                defer_subclause shift  498
                      {default} reduce 36
@@ -7626,7 +7626,7 @@ State 144:
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  290
+                            nm shift  289
                             id shift  623
 
 State 145:
@@ -7679,11 +7679,25 @@ State 147:
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  291
+                            nm shift  290
                             id shift  623
 
 State 148:
-    (319) vtabarglist ::= vtabarg *
+    (318) vtabarglist ::= vtabarg *
+          vtabarg ::= vtabarg * vtabargtoken
+          vtabargtoken ::= * ANY
+          vtabargtoken ::= * lp anylist RP
+          lp ::= * LP
+
+                            LP shift  423
+                            RP reduce 318
+                         COMMA reduce 318
+                           ANY shift  427
+                  vtabargtoken shift  428
+                            lp shift  306
+
+State 149:
+    (319) vtabarglist ::= vtabarglist COMMA vtabarg *
           vtabarg ::= vtabarg * vtabargtoken
           vtabargtoken ::= * ANY
           vtabargtoken ::= * lp anylist RP
@@ -7694,21 +7708,7 @@ State 148:
                          COMMA reduce 319
                            ANY shift  427
                   vtabargtoken shift  428
-                            lp shift  307
-
-State 149:
-    (320) vtabarglist ::= vtabarglist COMMA vtabarg *
-          vtabarg ::= vtabarg * vtabargtoken
-          vtabargtoken ::= * ANY
-          vtabargtoken ::= * lp anylist RP
-          lp ::= * LP
-
-                            LP shift  423
-                            RP reduce 320
-                         COMMA reduce 320
-                           ANY shift  427
-                  vtabargtoken shift  428
-                            lp shift  307
+                            lp shift  306
 
 State 150:
           id ::= * ID
@@ -7738,7 +7738,7 @@ State 151:
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  240
+                            nm shift  239
                             id shift  623
                      {default} reduce 307
 
@@ -7755,7 +7755,7 @@ State 152:
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  241
+                            nm shift  240
                             id shift  623
                      {default} reduce 305
 
@@ -7775,7 +7775,7 @@ State 153:
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  244
+                            nm shift  243
                             id shift  623
 
 State 154:
@@ -7822,7 +7822,7 @@ State 156:
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  252
+                            nm shift  251
                             id shift  623
 
 State 157:
@@ -7897,7 +7897,7 @@ State 161:
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  259
+                            nm shift  258
                             id shift  623
 
 State 162:
@@ -7912,7 +7912,7 @@ State 162:
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  264
+                            nm shift  263
                             id shift  623
 
 State 163:
@@ -7927,7 +7927,7 @@ State 163:
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  266
+                            nm shift  265
                             id shift  623
 
 State 164:
@@ -7942,7 +7942,7 @@ State 164:
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  268
+                            nm shift  267
                             id shift  623
 
 State 165:
@@ -7957,7 +7957,7 @@ State 165:
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  270
+                            nm shift  269
                             id shift  623
 
 State 166:
@@ -7987,7 +7987,7 @@ State 167:
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  276
+                            nm shift  275
                             id shift  623
 
 State 168:
@@ -8017,7 +8017,7 @@ State 169:
                        INDEXED shift  624
                         STRING shift  622
                        JOIN_KW shift  621
-                            nm shift  277
+                            nm shift  276
                             id shift  623
 
 State 170:
@@ -8214,7 +8214,7 @@ State 182:
                             ID shift  599
                         STRING shift  599
                            ids shift  546
-                            as shift  285
+                            as shift  284
                      {default} reduce 129
 
 State 183:
@@ -8228,7 +8228,7 @@ State 183:
                             ID shift  599
                         STRING shift  599
                            ids shift  546
-                            as shift  287
+                            as shift  286
                      {default} reduce 129
 
 State 184:
@@ -8256,23 +8256,24 @@ State 185:
 
                              $ reduce 0
                           SEMI shift  630
-                       EXPLAIN shift  333
+                       EXPLAIN shift  332
                           ecmd shift  631
                        explain shift  2
                      {default} reduce 5
 
 State 186:
-          cmd ::= createkw temp VIEW ifnotexists nm dbnm AS * select
-          select ::= * oneselect
-          select ::= * select multiselect_op oneselect
-          oneselect ::= * SELECT distinct selcollist from where_opt groupby_opt having_opt orderby_opt limit_opt
+          cmd ::= ALTER TABLE add_column_fullname ADD * kwcolumn_opt column
+          kwcolumn_opt ::= * COLUMNKW
+          cmd ::= ALTER TABLE add_column_fullname ADD * fullname_grk carglist
+          fullname_grk ::= * CONSTRAINT ANY
 
-                        SELECT shift  237
-                        select shift  210
-                     oneselect shift  602
+                      COLUMNKW shift  431
+                    CONSTRAINT shift  334
+                  kwcolumn_opt shift  63
+                  fullname_grk shift  308
 
 State 187:
-          create_table_args ::= AS * select
+          cmd ::= createkw temp VIEW ifnotexists nm dbnm AS * select
           select ::= * oneselect
           select ::= * select multiselect_op oneselect
           oneselect ::= * SELECT distinct selcollist from where_opt groupby_opt having_opt orderby_opt limit_opt
@@ -8282,27 +8283,37 @@ State 187:
                      oneselect shift  602
 
 State 188:
+          create_table_args ::= AS * select
+          select ::= * oneselect
+          select ::= * select multiselect_op oneselect
+          oneselect ::= * SELECT distinct selcollist from where_opt groupby_opt having_opt orderby_opt limit_opt
+
+                        SELECT shift  237
+                        select shift  212
+                     oneselect shift  602
+
+State 189:
           select ::= * oneselect
           select ::= * select multiselect_op oneselect
           oneselect ::= * SELECT distinct selcollist from where_opt groupby_opt having_opt orderby_opt limit_opt
           expr ::= EXISTS LP * select RP
 
                         SELECT shift  237
-                        select shift  201
+                        select shift  202
                      oneselect shift  602
 
-State 189:
+State 190:
           cmd ::= create_vtab LP * vtabarglist RP
           vtabarglist ::= * vtabarg
           vtabarglist ::= * vtabarglist COMMA vtabarg
-    (321) vtabarg ::= *
+    (320) vtabarg ::= *
           vtabarg ::= * vtabarg vtabargtoken
 
-                   vtabarglist shift  319
+                   vtabarglist shift  318
                        vtabarg shift  148
-                     {default} reduce 321
+                     {default} reduce 320
 
-State 190:
+State 191:
           from ::= FROM * seltablist
           stl_prefix ::= * seltablist joinop
     (133) stl_prefix ::= *
@@ -8310,11 +8321,11 @@ State 190:
           seltablist ::= * stl_prefix LP select RP as on_opt using_opt
           seltablist ::= * stl_prefix LP seltablist RP as on_opt using_opt
 
-                    seltablist shift  212
+                    seltablist shift  213
                     stl_prefix shift  144
                      {default} reduce 133
 
-State 191:
+State 192:
           oneselect ::= SELECT distinct * selcollist from where_opt groupby_opt having_opt orderby_opt limit_opt
           sclp ::= * selcollist COMMA
     (123) sclp ::= *
@@ -8326,7 +8337,7 @@ State 191:
                           sclp shift  19
                      {default} reduce 123
 
-State 192:
+State 193:
           ccons ::= DEFAULT MINUS * term
           term ::= * NULL
           term ::= * INTEGER|FLOAT|BLOB
@@ -8341,7 +8352,7 @@ State 192:
                           BLOB shift  595
                           term shift  527
 
-State 193:
+State 194:
           ccons ::= DEFAULT PLUS * term
           term ::= * NULL
           term ::= * INTEGER|FLOAT|BLOB
@@ -8356,7 +8367,7 @@ State 193:
                           BLOB shift  595
                           term shift  529
 
-State 194:
+State 195:
           conslist ::= conslist tconscomma * tcons
           tcons ::= * CONSTRAINT nm
           tcons ::= * PRIMARY KEY LP idxlist autoinc RP onconf
@@ -8371,7 +8382,7 @@ State 194:
                        FOREIGN shift  379
                          tcons shift  493
 
-State 195:
+State 196:
           refarg ::= ON UPDATE * refact
           refact ::= * SET NULL
           refact ::= * SET DEFAULT
@@ -8382,10 +8393,10 @@ State 195:
                        CASCADE shift  507
                             NO shift  385
                       RESTRICT shift  506
-                           SET shift  327
+                           SET shift  326
                         refact shift  503
 
-State 196:
+State 197:
           refarg ::= ON DELETE * refact
           refact ::= * SET NULL
           refact ::= * SET DEFAULT
@@ -8396,10 +8407,10 @@ State 196:
                        CASCADE shift  507
                             NO shift  385
                       RESTRICT shift  506
-                           SET shift  327
+                           SET shift  326
                         refact shift  504
 
-State 197:
+State 198:
           refarg ::= ON INSERT * refact
           refact ::= * SET NULL
           refact ::= * SET DEFAULT
@@ -8410,10 +8421,10 @@ State 197:
                        CASCADE shift  507
                             NO shift  385
                       RESTRICT shift  506
-                           SET shift  327
+                           SET shift  326
                         refact shift  510
 
-State 198:
+State 199:
           stl_prefix ::= seltablist * joinop
           seltablist ::= stl_prefix LP seltablist * RP as on_opt using_opt
           joinop ::= * COMMA|JOIN
@@ -8427,7 +8438,7 @@ State 198:
                           JOIN shift  551
                         joinop shift  552
 
-State 199:
+State 200:
           select ::= select * multiselect_op oneselect
           multiselect_op ::= * UNION
           multiselect_op ::= * UNION ALL
@@ -8438,9 +8449,9 @@ State 199:
                          UNION shift  411
                         EXCEPT shift  581
                      INTERSECT shift  581
-                multiselect_op shift  298
+                multiselect_op shift  297
 
-State 200:
+State 201:
           expr ::= RAISE LP * IGNORE RP
           expr ::= RAISE LP * raisetype COMMA nm RP
           raisetype ::= * ROLLBACK
@@ -8453,7 +8464,7 @@ State 200:
                         IGNORE shift  404
                      raisetype shift  403
 
-State 201:
+State 202:
           select ::= select * multiselect_op oneselect
           multiselect_op ::= * UNION
           multiselect_op ::= * UNION ALL
@@ -8464,9 +8475,9 @@ State 201:
                          UNION shift  411
                         EXCEPT shift  581
                      INTERSECT shift  581
-                multiselect_op shift  298
+                multiselect_op shift  297
 
-State 202:
+State 203:
           select ::= select * multiselect_op oneselect
           multiselect_op ::= * UNION
           multiselect_op ::= * UNION ALL
@@ -8477,9 +8488,9 @@ State 202:
                          UNION shift  411
                         EXCEPT shift  581
                      INTERSECT shift  581
-                multiselect_op shift  298
+                multiselect_op shift  297
 
-State 203:
+State 204:
           select ::= select * multiselect_op oneselect
           multiselect_op ::= * UNION
           multiselect_op ::= * UNION ALL
@@ -8490,9 +8501,9 @@ State 203:
                          UNION shift  411
                         EXCEPT shift  581
                      INTERSECT shift  581
-                multiselect_op shift  298
+                multiselect_op shift  297
 
-State 204:
+State 205:
           select ::= select * multiselect_op oneselect
           multiselect_op ::= * UNION
           multiselect_op ::= * UNION ALL
@@ -8502,10 +8513,10 @@ State 204:
                          UNION shift  411
                         EXCEPT shift  581
                      INTERSECT shift  581
-                multiselect_op shift  298
+                multiselect_op shift  297
                      {default} reduce 173
 
-State 205:
+State 206:
     (112) cmd ::= select *
           select ::= select * multiselect_op oneselect
           multiselect_op ::= * UNION
@@ -8515,10 +8526,10 @@ State 205:
                          UNION shift  411
                         EXCEPT shift  581
                      INTERSECT shift  581
-                multiselect_op shift  298
+                multiselect_op shift  297
                      {default} reduce 112
 
-State 206:
+State 207:
           select ::= select * multiselect_op oneselect
           multiselect_op ::= * UNION
           multiselect_op ::= * UNION ALL
@@ -8528,10 +8539,10 @@ State 206:
                          UNION shift  411
                         EXCEPT shift  581
                      INTERSECT shift  581
-                multiselect_op shift  298
+                multiselect_op shift  297
                      {default} reduce 290
 
-State 207:
+State 208:
           select ::= select * multiselect_op oneselect
           multiselect_op ::= * UNION
           multiselect_op ::= * UNION ALL
@@ -8541,10 +8552,10 @@ State 207:
                          UNION shift  411
                         EXCEPT shift  581
                      INTERSECT shift  581
-                multiselect_op shift  298
+                multiselect_op shift  297
                      {default} reduce 292
 
-State 208:
+State 209:
           trigger_decl ::= temp TRIGGER ifnotexists nm dbnm trigger_time * trigger_event ON fullname foreach_clause when_clause
           trigger_event ::= * DELETE|INSERT
           trigger_event ::= * UPDATE
@@ -8555,7 +8566,7 @@ State 208:
                         UPDATE shift  369
                  trigger_event shift  372
 
-State 209:
+State 210:
           trigger_decl ::= temp TRIGGER ifnotexists nm dbnm * trigger_time trigger_event ON fullname foreach_clause when_clause
           trigger_time ::= * BEFORE
           trigger_time ::= * AFTER
@@ -8565,10 +8576,10 @@ State 209:
                          AFTER shift  476
                         BEFORE shift  477
                        INSTEAD shift  367
-                  trigger_time shift  208
+                  trigger_time shift  209
                      {default} reduce 273
 
-State 210:
+State 211:
     (110) cmd ::= createkw temp VIEW ifnotexists nm dbnm AS select *
           select ::= select * multiselect_op oneselect
           multiselect_op ::= * UNION
@@ -8578,10 +8589,10 @@ State 210:
                          UNION shift  411
                         EXCEPT shift  581
                      INTERSECT shift  581
-                multiselect_op shift  298
+                multiselect_op shift  297
                      {default} reduce 110
 
-State 211:
+State 212:
      (33) create_table_args ::= AS select *
           select ::= select * multiselect_op oneselect
           multiselect_op ::= * UNION
@@ -8591,10 +8602,10 @@ State 211:
                          UNION shift  411
                         EXCEPT shift  581
                      INTERSECT shift  581
-                multiselect_op shift  298
+                multiselect_op shift  297
                      {default} reduce 33
 
-State 212:
+State 213:
     (131) from ::= FROM seltablist *
           stl_prefix ::= seltablist * joinop
           joinop ::= * COMMA|JOIN
@@ -8608,7 +8619,7 @@ State 212:
                         joinop shift  552
                      {default} reduce 131
 
-State 213:
+State 214:
           ids ::= * ID|STRING
      (46) typetoken ::= typename *
           typetoken ::= typename * LP signed RP
@@ -8621,7 +8632,7 @@ State 213:
                            ids shift  571
                      {default} reduce 46
 
-State 214:
+State 215:
           distinct ::= * DISTINCT
           distinct ::= * ALL
     (121) distinct ::= *
@@ -8634,7 +8645,7 @@ State 214:
                       distinct shift  5
                      {default} reduce 121
 
-State 215:
+State 216:
           cmd ::= BEGIN * transtype trans_opt
      (13) transtype ::= *
           transtype ::= * DEFERRED
@@ -8644,19 +8655,8 @@ State 215:
                       DEFERRED shift  620
                      IMMEDIATE shift  619
                      EXCLUSIVE shift  618
-                     transtype shift  305
+                     transtype shift  304
                      {default} reduce 13
-
-State 216:
-          cmd ::= ALTER TABLE add_column_fullname ADD * kwcolumn_opt column
-    (312) kwcolumn_opt ::= *
-          kwcolumn_opt ::= * COLUMNKW
-          cmd ::= ALTER TABLE add_column_fullname ADD * CONSTRAINT fullname_grk carglist
-
-                      COLUMNKW shift  431
-                    CONSTRAINT shift  239
-                  kwcolumn_opt shift  63
-                     {default} reduce 312
 
 State 217:
     (167) where_opt ::= *
@@ -8688,7 +8688,7 @@ State 219:
 
                            NOT shift  392
                        INDEXED shift  393
-                   indexed_opt shift  247
+                   indexed_opt shift  246
                      {default} reduce 146
 
 State 220:
@@ -8699,7 +8699,7 @@ State 220:
 
                            NOT shift  359
                        INDEXED shift  360
-                       tridxby shift  254
+                       tridxby shift  253
                      {default} reduce 285
 
 State 221:
@@ -8743,7 +8743,7 @@ State 224:
 
                             RP reduce 88
                          COMMA shift  486
-                    tconscomma shift  194
+                    tconscomma shift  195
                      {default} reduce 92
 
 State 225:
@@ -8793,7 +8793,7 @@ State 229:
           refarg ::= * ON UPDATE refact
 
                          MATCH shift  168
-                            ON shift  318
+                            ON shift  317
                         refarg shift  512
                      {default} reduce 66
 
@@ -8805,7 +8805,7 @@ State 230:
 
                            ASC shift  556
                           DESC shift  555
-                     sortorder shift  280
+                     sortorder shift  279
                      {default} reduce 157
 
 State 231:
@@ -8816,7 +8816,7 @@ State 231:
 
                            NOT shift  392
                        INDEXED shift  393
-                   indexed_opt shift  289
+                   indexed_opt shift  288
                      {default} reduce 146
 
 State 232:
@@ -8861,8 +8861,8 @@ State 236:
           from ::= * FROM seltablist
 
                          COMMA shift  553
-                          FROM shift  190
-                          from shift  297
+                          FROM shift  191
+                          from shift  296
                      {default} reduce 130
 
 State 237:
@@ -8873,7 +8873,7 @@ State 237:
 
                            ALL shift  604
                       DISTINCT shift  605
-                      distinct shift  191
+                      distinct shift  192
                      {default} reduce 121
 
 State 238:
@@ -8882,17 +8882,10 @@ State 238:
           create_table_args ::= * AS select
 
                             LP shift  15
-                            AS shift  187
+                            AS shift  188
              create_table_args shift  611
 
 State 239:
-          cmd ::= ALTER TABLE add_column_fullname ADD CONSTRAINT * fullname_grk carglist
-          fullname_grk ::= * ANY
-
-                           ANY shift  430
-                  fullname_grk shift  309
-
-State 240:
     (137) dbnm ::= *
           dbnm ::= * DOT nm
           cmd ::= ANALYZE nm * dbnm
@@ -8901,7 +8894,7 @@ State 240:
                           dbnm shift  434
                      {default} reduce 137
 
-State 241:
+State 240:
     (137) dbnm ::= *
           dbnm ::= * DOT nm
           cmd ::= REINDEX nm * dbnm
@@ -8910,7 +8903,7 @@ State 241:
                           dbnm shift  435
                      {default} reduce 137
 
-State 242:
+State 241:
           cmd ::= DETACH * database_kw_opt expr
           database_kw_opt ::= * DATABASE
     (304) database_kw_opt ::= *
@@ -8919,7 +8912,7 @@ State 242:
                database_kw_opt shift  20
                      {default} reduce 304
 
-State 243:
+State 242:
           cmd ::= ATTACH * database_kw_opt expr AS expr key_opt
           database_kw_opt ::= * DATABASE
     (304) database_kw_opt ::= *
@@ -8928,7 +8921,7 @@ State 243:
                database_kw_opt shift  23
                      {default} reduce 304
 
-State 244:
+State 243:
     (137) dbnm ::= *
           dbnm ::= * DOT nm
           cmd ::= PRAGMA nm * dbnm
@@ -8938,10 +8931,10 @@ State 244:
           cmd ::= PRAGMA nm * dbnm LP minus_num RP
 
                            DOT shift  173
-                          dbnm shift  320
+                          dbnm shift  319
                      {default} reduce 137
 
-State 245:
+State 244:
           cmd ::= insert_cmd INTO fullname * inscollist_opt valuelist
           cmd ::= insert_cmd INTO fullname * inscollist_opt select
           cmd ::= insert_cmd INTO fullname * inscollist_opt DEFAULT VALUES
@@ -8952,7 +8945,7 @@ State 245:
                 inscollist_opt shift  130
                      {default} reduce 179
 
-State 246:
+State 245:
     (102) orconf ::= *
           orconf ::= * OR resolvetype
           cmd ::= UPDATE * orconf fullname indexed_opt SET setlist where_opt
@@ -8961,7 +8954,7 @@ State 246:
                         orconf shift  109
                      {default} reduce 102
 
-State 247:
+State 246:
           cmd ::= DELETE FROM fullname indexed_opt * where_opt
     (167) where_opt ::= *
           where_opt ::= * WHERE expr
@@ -8970,7 +8963,7 @@ State 247:
                      where_opt shift  450
                      {default} reduce 167
 
-State 248:
+State 247:
           ifexists ::= * IF EXISTS
     (109) ifexists ::= *
           cmd ::= DROP TRIGGER * ifexists fullname
@@ -8979,7 +8972,7 @@ State 248:
                       ifexists shift  111
                      {default} reduce 109
 
-State 249:
+State 248:
           ifexists ::= * IF EXISTS
     (109) ifexists ::= *
           cmd ::= DROP INDEX * ifexists fullname
@@ -8988,7 +8981,7 @@ State 249:
                       ifexists shift  112
                      {default} reduce 109
 
-State 250:
+State 249:
           ifexists ::= * IF EXISTS
     (109) ifexists ::= *
           cmd ::= DROP VIEW * ifexists fullname
@@ -8997,7 +8990,7 @@ State 250:
                       ifexists shift  113
                      {default} reduce 109
 
-State 251:
+State 250:
           cmd ::= DROP TABLE * ifexists fullname
           ifexists ::= * IF EXISTS
     (109) ifexists ::= *
@@ -9006,7 +8999,7 @@ State 251:
                       ifexists shift  114
                      {default} reduce 109
 
-State 252:
+State 251:
     (137) dbnm ::= *
           dbnm ::= * DOT nm
           create_vtab ::= createkw VIRTUAL TABLE ifnotexists nm * dbnm USING nm
@@ -9015,7 +9008,7 @@ State 252:
                           dbnm shift  347
                      {default} reduce 137
 
-State 253:
+State 252:
      (28) ifnotexists ::= *
           ifnotexists ::= * IF NOT EXISTS
           create_vtab ::= createkw VIRTUAL TABLE * ifnotexists nm dbnm USING nm
@@ -9024,7 +9017,7 @@ State 253:
                    ifnotexists shift  156
                      {default} reduce 28
 
-State 254:
+State 253:
     (167) where_opt ::= *
           where_opt ::= * WHERE expr
           trigger_cmd ::= DELETE FROM trnm tridxby * where_opt
@@ -9033,7 +9026,7 @@ State 254:
                      where_opt shift  459
                      {default} reduce 167
 
-State 255:
+State 254:
     (179) inscollist_opt ::= *
           inscollist_opt ::= * LP inscollist RP
           trigger_cmd ::= insert_cmd INTO trnm * inscollist_opt valuelist
@@ -9043,7 +9036,7 @@ State 255:
                 inscollist_opt shift  131
                      {default} reduce 179
 
-State 256:
+State 255:
     (102) orconf ::= *
           orconf ::= * OR resolvetype
           trigger_cmd ::= UPDATE * orconf trnm tridxby SET setlist where_opt
@@ -9052,7 +9045,7 @@ State 256:
                         orconf shift  119
                      {default} reduce 102
 
-State 257:
+State 256:
     (102) orconf ::= *
           orconf ::= * OR resolvetype
           insert_cmd ::= INSERT * orconf
@@ -9061,7 +9054,7 @@ State 257:
                         orconf shift  470
                      {default} reduce 102
 
-State 258:
+State 257:
     (167) where_opt ::= *
           where_opt ::= * WHERE expr
           cmd ::= createkw uniqueflag INDEX ifnotexists nm dbnm ON nm LP idxlist RP * where_opt
@@ -9070,7 +9063,7 @@ State 258:
                      where_opt shift  473
                      {default} reduce 167
 
-State 259:
+State 258:
     (137) dbnm ::= *
           dbnm ::= * DOT nm
           cmd ::= createkw uniqueflag INDEX ifnotexists nm * dbnm ON nm LP idxlist RP where_opt
@@ -9079,7 +9072,7 @@ State 259:
                           dbnm shift  365
                      {default} reduce 137
 
-State 260:
+State 259:
      (28) ifnotexists ::= *
           ifnotexists ::= * IF NOT EXISTS
           cmd ::= createkw uniqueflag INDEX * ifnotexists nm dbnm ON nm LP idxlist RP where_opt
@@ -9088,7 +9081,7 @@ State 260:
                    ifnotexists shift  161
                      {default} reduce 28
 
-State 261:
+State 260:
           trigger_decl ::= temp TRIGGER ifnotexists nm dbnm trigger_time trigger_event ON fullname foreach_clause * when_clause
     (279) when_clause ::= *
           when_clause ::= * WHEN expr
@@ -9097,16 +9090,16 @@ State 261:
                    when_clause shift  480
                      {default} reduce 279
 
-State 262:
+State 261:
           trigger_decl ::= temp TRIGGER ifnotexists nm dbnm trigger_time trigger_event ON fullname * foreach_clause when_clause
     (277) foreach_clause ::= *
           foreach_clause ::= * FOR EACH ROW
 
                            FOR shift  371
-                foreach_clause shift  261
+                foreach_clause shift  260
                      {default} reduce 277
 
-State 263:
+State 262:
     (137) dbnm ::= *
           dbnm ::= * DOT nm
           fullname ::= nm * dbnm
@@ -9115,16 +9108,16 @@ State 263:
                           dbnm shift  481
                      {default} reduce 137
 
-State 264:
+State 263:
     (137) dbnm ::= *
           dbnm ::= * DOT nm
           trigger_decl ::= temp TRIGGER ifnotexists nm * dbnm trigger_time trigger_event ON fullname foreach_clause when_clause
 
                            DOT shift  173
-                          dbnm shift  209
+                          dbnm shift  210
                      {default} reduce 137
 
-State 265:
+State 264:
      (28) ifnotexists ::= *
           ifnotexists ::= * IF NOT EXISTS
           trigger_decl ::= temp TRIGGER * ifnotexists nm dbnm trigger_time trigger_event ON fullname foreach_clause when_clause
@@ -9133,7 +9126,7 @@ State 265:
                    ifnotexists shift  162
                      {default} reduce 28
 
-State 266:
+State 265:
           cmd ::= createkw temp VIEW ifnotexists nm * dbnm AS select
     (137) dbnm ::= *
           dbnm ::= * DOT nm
@@ -9142,7 +9135,7 @@ State 266:
                           dbnm shift  373
                      {default} reduce 137
 
-State 267:
+State 266:
      (28) ifnotexists ::= *
           ifnotexists ::= * IF NOT EXISTS
           cmd ::= createkw temp VIEW * ifnotexists nm dbnm AS select
@@ -9151,7 +9144,7 @@ State 267:
                    ifnotexists shift  163
                      {default} reduce 28
 
-State 268:
+State 267:
           create_table ::= createkw temp TABLE ifnotexists nm * dbnm
     (137) dbnm ::= *
           dbnm ::= * DOT nm
@@ -9160,7 +9153,7 @@ State 268:
                           dbnm shift  483
                      {default} reduce 137
 
-State 269:
+State 268:
           create_table ::= createkw temp TABLE * ifnotexists nm dbnm
      (28) ifnotexists ::= *
           ifnotexists ::= * IF NOT EXISTS
@@ -9169,16 +9162,16 @@ State 269:
                    ifnotexists shift  164
                      {default} reduce 28
 
-State 270:
+State 269:
           tcons ::= FOREIGN KEY LP idxlist RP REFERENCES nm * idxlist_opt refargs defer_subclause_opt
     (245) idxlist_opt ::= *
           idxlist_opt ::= * LP idxlist RP
 
                             LP shift  128
-                   idxlist_opt shift  310
+                   idxlist_opt shift  309
                      {default} reduce 245
 
-State 271:
+State 270:
           tcons ::= CHECK LP expr RP * onconf
     (100) onconf ::= *
           onconf ::= * ON CONFLICT resolvetype
@@ -9187,7 +9180,7 @@ State 271:
                         onconf shift  489
                      {default} reduce 100
 
-State 272:
+State 271:
           tcons ::= UNIQUE LP idxlist RP * onconf
     (100) onconf ::= *
           onconf ::= * ON CONFLICT resolvetype
@@ -9196,7 +9189,7 @@ State 272:
                         onconf shift  490
                      {default} reduce 100
 
-State 273:
+State 272:
           tcons ::= PRIMARY KEY LP idxlist autoinc RP * onconf
     (100) onconf ::= *
           onconf ::= * ON CONFLICT resolvetype
@@ -9205,17 +9198,17 @@ State 273:
                         onconf shift  491
                      {default} reduce 100
 
-State 274:
+State 273:
           defer_subclause ::= DEFERRABLE * init_deferred_pred_opt
      (84) init_deferred_pred_opt ::= *
           init_deferred_pred_opt ::= * INITIALLY DEFERRED
           init_deferred_pred_opt ::= * INITIALLY IMMEDIATE
 
-                     INITIALLY shift  328
+                     INITIALLY shift  327
         init_deferred_pred_opt shift  496
                      {default} reduce 84
 
-State 275:
+State 274:
           idxlist ::= nm * collate sortorder
     (249) collate ::= *
           collate ::= * COLLATE ids
@@ -9224,7 +9217,7 @@ State 275:
                        collate shift  226
                      {default} reduce 249
 
-State 276:
+State 275:
           idxlist ::= idxlist COMMA nm * collate sortorder
     (249) collate ::= *
           collate ::= * COLLATE ids
@@ -9233,16 +9226,16 @@ State 276:
                        collate shift  228
                      {default} reduce 249
 
-State 277:
+State 276:
           ccons ::= REFERENCES nm * idxlist_opt refargs
     (245) idxlist_opt ::= *
           idxlist_opt ::= * LP idxlist RP
 
                             LP shift  128
-                   idxlist_opt shift  311
+                   idxlist_opt shift  310
                      {default} reduce 245
 
-State 278:
+State 277:
           ccons ::= UNIQUE * onconf
     (100) onconf ::= *
           onconf ::= * ON CONFLICT resolvetype
@@ -9251,7 +9244,7 @@ State 278:
                         onconf shift  514
                      {default} reduce 100
 
-State 279:
+State 278:
           ccons ::= PRIMARY KEY sortorder onconf * autoinc
      (69) autoinc ::= *
           autoinc ::= * AUTOINCR
@@ -9260,26 +9253,26 @@ State 279:
                        autoinc shift  516
                      {default} reduce 69
 
-State 280:
+State 279:
           ccons ::= PRIMARY KEY sortorder * onconf autoinc
     (100) onconf ::= *
           onconf ::= * ON CONFLICT resolvetype
 
                             ON shift  388
-                        onconf shift  279
+                        onconf shift  278
                      {default} reduce 100
 
-State 281:
+State 280:
           defer_subclause ::= NOT DEFERRABLE * init_deferred_pred_opt
      (84) init_deferred_pred_opt ::= *
           init_deferred_pred_opt ::= * INITIALLY DEFERRED
           init_deferred_pred_opt ::= * INITIALLY IMMEDIATE
 
-                     INITIALLY shift  328
+                     INITIALLY shift  327
         init_deferred_pred_opt shift  519
                      {default} reduce 84
 
-State 282:
+State 281:
           ccons ::= NOT NULL * onconf
     (100) onconf ::= *
           onconf ::= * ON CONFLICT resolvetype
@@ -9288,7 +9281,7 @@ State 282:
                         onconf shift  520
                      {default} reduce 100
 
-State 283:
+State 282:
           ccons ::= NULL * onconf
     (100) onconf ::= *
           onconf ::= * ON CONFLICT resolvetype
@@ -9297,7 +9290,7 @@ State 283:
                         onconf shift  525
                      {default} reduce 100
 
-State 284:
+State 283:
           seltablist ::= stl_prefix LP seltablist RP as on_opt * using_opt
           using_opt ::= * USING LP inscollist RP
     (150) using_opt ::= *
@@ -9306,16 +9299,16 @@ State 284:
                      using_opt shift  538
                      {default} reduce 150
 
-State 285:
+State 284:
           seltablist ::= stl_prefix LP seltablist RP as * on_opt using_opt
           on_opt ::= * ON expr
     (145) on_opt ::= *
 
                             ON shift  29
-                        on_opt shift  284
+                        on_opt shift  283
                      {default} reduce 145
 
-State 286:
+State 285:
           seltablist ::= stl_prefix LP select RP as on_opt * using_opt
           using_opt ::= * USING LP inscollist RP
     (150) using_opt ::= *
@@ -9324,16 +9317,16 @@ State 286:
                      using_opt shift  539
                      {default} reduce 150
 
-State 287:
+State 286:
           seltablist ::= stl_prefix LP select RP as * on_opt using_opt
           on_opt ::= * ON expr
     (145) on_opt ::= *
 
                             ON shift  29
-                        on_opt shift  286
+                        on_opt shift  285
                      {default} reduce 145
 
-State 288:
+State 287:
           seltablist ::= stl_prefix nm dbnm as indexed_opt on_opt * using_opt
           using_opt ::= * USING LP inscollist RP
     (150) using_opt ::= *
@@ -9342,16 +9335,16 @@ State 288:
                      using_opt shift  545
                      {default} reduce 150
 
-State 289:
+State 288:
           seltablist ::= stl_prefix nm dbnm as indexed_opt * on_opt using_opt
           on_opt ::= * ON expr
     (145) on_opt ::= *
 
                             ON shift  29
-                        on_opt shift  288
+                        on_opt shift  287
                      {default} reduce 145
 
-State 290:
+State 289:
           seltablist ::= stl_prefix nm * dbnm as indexed_opt on_opt using_opt
     (137) dbnm ::= *
           dbnm ::= * DOT nm
@@ -9360,7 +9353,7 @@ State 290:
                           dbnm shift  184
                      {default} reduce 137
 
-State 291:
+State 290:
     (137) dbnm ::= *
           dbnm ::= * DOT nm
           expr ::= expr in_op nm * dbnm
@@ -9369,7 +9362,7 @@ State 291:
                           dbnm shift  558
                      {default} reduce 137
 
-State 292:
+State 291:
           expr ::= CASE case_operand * case_exprlist case_else END
           case_exprlist ::= * case_exprlist WHEN expr THEN expr
           case_exprlist ::= * WHEN expr THEN expr
@@ -9377,7 +9370,7 @@ State 292:
                           WHEN shift  37
                  case_exprlist shift  232
 
-State 293:
+State 292:
           oneselect ::= SELECT distinct selcollist from where_opt groupby_opt having_opt orderby_opt * limit_opt
     (162) limit_opt ::= *
           limit_opt ::= * LIMIT expr
@@ -9388,50 +9381,50 @@ State 293:
                      limit_opt shift  600
                      {default} reduce 162
 
-State 294:
+State 293:
           oneselect ::= SELECT distinct selcollist from where_opt groupby_opt having_opt * orderby_opt limit_opt
     (151) orderby_opt ::= *
           orderby_opt ::= * ORDER BY sortlist
 
                          ORDER shift  399
-                   orderby_opt shift  293
+                   orderby_opt shift  292
                      {default} reduce 151
 
-State 295:
+State 294:
           oneselect ::= SELECT distinct selcollist from where_opt groupby_opt * having_opt orderby_opt limit_opt
     (160) having_opt ::= *
           having_opt ::= * HAVING expr
 
                         HAVING shift  31
-                    having_opt shift  294
+                    having_opt shift  293
                      {default} reduce 160
 
-State 296:
+State 295:
           oneselect ::= SELECT distinct selcollist from where_opt * groupby_opt having_opt orderby_opt limit_opt
     (158) groupby_opt ::= *
           groupby_opt ::= * GROUP BY nexprlist
 
                          GROUP shift  397
-                   groupby_opt shift  295
+                   groupby_opt shift  294
                      {default} reduce 158
 
-State 297:
+State 296:
           oneselect ::= SELECT distinct selcollist from * where_opt groupby_opt having_opt orderby_opt limit_opt
     (167) where_opt ::= *
           where_opt ::= * WHERE expr
 
                          WHERE shift  30
-                     where_opt shift  296
+                     where_opt shift  295
                      {default} reduce 167
 
-State 298:
+State 297:
           select ::= select multiselect_op * oneselect
           oneselect ::= * SELECT distinct selcollist from where_opt groupby_opt having_opt orderby_opt limit_opt
 
                         SELECT shift  237
                      oneselect shift  601
 
-State 299:
+State 298:
           create_table_args ::= LP columnlist * conslist_opt RP
           columnlist ::= columnlist * COMMA column
      (87) conslist_opt ::= *
@@ -9441,7 +9434,7 @@ State 299:
                   conslist_opt shift  418
                      {default} reduce 87
 
-State 300:
+State 299:
           savepoint_opt ::= * SAVEPOINT
      (21) savepoint_opt ::= *
           cmd ::= RELEASE * savepoint_opt nm
@@ -9450,7 +9443,7 @@ State 300:
                  savepoint_opt shift  178
                      {default} reduce 21
 
-State 301:
+State 300:
           savepoint_opt ::= * SAVEPOINT
      (21) savepoint_opt ::= *
           cmd ::= ROLLBACK trans_opt TO * savepoint_opt nm
@@ -9459,7 +9452,7 @@ State 301:
                  savepoint_opt shift  180
                      {default} reduce 21
 
-State 302:
+State 301:
      (10) trans_opt ::= *
           trans_opt ::= * TRANSACTION
           trans_opt ::= * TRANSACTION nm
@@ -9470,7 +9463,7 @@ State 302:
                      trans_opt shift  419
                      {default} reduce 10
 
-State 303:
+State 302:
      (10) trans_opt ::= *
           trans_opt ::= * TRANSACTION
           trans_opt ::= * TRANSACTION nm
@@ -9480,7 +9473,7 @@ State 303:
                      trans_opt shift  616
                      {default} reduce 10
 
-State 304:
+State 303:
      (10) trans_opt ::= *
           trans_opt ::= * TRANSACTION
           trans_opt ::= * TRANSACTION nm
@@ -9490,7 +9483,7 @@ State 304:
                      trans_opt shift  617
                      {default} reduce 10
 
-State 305:
+State 304:
           cmd ::= BEGIN transtype * trans_opt
      (10) trans_opt ::= *
           trans_opt ::= * TRANSACTION
@@ -9500,41 +9493,41 @@ State 305:
                      trans_opt shift  627
                      {default} reduce 10
 
-State 306:
-    (326) anylist ::= *
+State 305:
+    (325) anylist ::= *
           anylist ::= * anylist LP anylist RP
           anylist ::= anylist LP * anylist RP
           anylist ::= * anylist ANY
 
-                       anylist shift  315
-                     {default} reduce 326
+                       anylist shift  314
+                     {default} reduce 325
 
-State 307:
+State 306:
           vtabargtoken ::= lp * anylist RP
-    (326) anylist ::= *
+    (325) anylist ::= *
           anylist ::= * anylist LP anylist RP
           anylist ::= * anylist ANY
 
-                       anylist shift  316
-                     {default} reduce 326
+                       anylist shift  315
+                     {default} reduce 325
 
-State 308:
+State 307:
           vtabarglist ::= vtabarglist COMMA * vtabarg
-    (321) vtabarg ::= *
+    (320) vtabarg ::= *
           vtabarg ::= * vtabarg vtabargtoken
 
                        vtabarg shift  149
-                     {default} reduce 321
+                     {default} reduce 320
 
-State 309:
+State 308:
           carglist ::= * carglist ccons
      (54) carglist ::= *
-          cmd ::= ALTER TABLE add_column_fullname ADD CONSTRAINT fullname_grk * carglist
+          cmd ::= ALTER TABLE add_column_fullname ADD fullname_grk * carglist
 
                       carglist shift  139
                      {default} reduce 54
 
-State 310:
+State 309:
      (71) refargs ::= *
           refargs ::= * refargs refarg
           tcons ::= FOREIGN KEY LP idxlist RP REFERENCES nm idxlist_opt * refargs defer_subclause_opt
@@ -9542,7 +9535,7 @@ State 310:
                        refargs shift  124
                      {default} reduce 71
 
-State 311:
+State 310:
           ccons ::= REFERENCES nm idxlist_opt * refargs
      (71) refargs ::= *
           refargs ::= * refargs refarg
@@ -9550,7 +9543,7 @@ State 311:
                        refargs shift  229
                      {default} reduce 71
 
-State 312:
+State 311:
           column ::= columnid type * carglist
           carglist ::= * carglist ccons
      (54) carglist ::= *
@@ -9558,7 +9551,7 @@ State 312:
                       carglist shift  140
                      {default} reduce 54
 
-State 313:
+State 312:
           likeop ::= NOT * LIKE_KW
           likeop ::= NOT * MATCH
           expr ::= expr NOT * NULL
@@ -9571,61 +9564,61 @@ State 313:
                             IN shift  587
                           NULL shift  589
 
-State 314:
+State 313:
           cmd ::= DROP * TABLE ifexists fullname
           cmd ::= DROP * VIEW ifexists fullname
           cmd ::= DROP * INDEX ifexists fullname
           cmd ::= DROP * TRIGGER ifexists fullname
 
-                         TABLE shift  251
-                       TRIGGER shift  248
-                          VIEW shift  250
-                         INDEX shift  249
+                         TABLE shift  250
+                       TRIGGER shift  247
+                          VIEW shift  249
+                         INDEX shift  248
 
-State 315:
+State 314:
           anylist ::= anylist * LP anylist RP
           anylist ::= anylist LP anylist * RP
           anylist ::= anylist * ANY
 
-                            LP shift  306
+                            LP shift  305
                             RP shift  425
                            ANY shift  424
 
-State 316:
+State 315:
           vtabargtoken ::= lp anylist * RP
           anylist ::= anylist * LP anylist RP
           anylist ::= anylist * ANY
 
-                            LP shift  306
+                            LP shift  305
                             RP shift  426
                            ANY shift  424
 
-State 317:
+State 316:
           create_table ::= createkw temp * TABLE ifnotexists nm dbnm
           cmd ::= createkw temp * VIEW ifnotexists nm dbnm AS select
           trigger_decl ::= temp * TRIGGER ifnotexists nm dbnm trigger_time trigger_event ON fullname foreach_clause when_clause
 
-                         TABLE shift  269
-                       TRIGGER shift  265
-                          VIEW shift  267
+                         TABLE shift  268
+                       TRIGGER shift  264
+                          VIEW shift  266
 
-State 318:
+State 317:
           refarg ::= ON * INSERT refact
           refarg ::= ON * DELETE refact
           refarg ::= ON * UPDATE refact
 
-                        INSERT shift  197
-                        DELETE shift  196
-                        UPDATE shift  195
+                        INSERT shift  198
+                        DELETE shift  197
+                        UPDATE shift  196
 
-State 319:
+State 318:
           cmd ::= create_vtab LP vtabarglist * RP
           vtabarglist ::= vtabarglist * COMMA vtabarg
 
                             RP shift  429
-                         COMMA shift  308
+                         COMMA shift  307
 
-State 320:
+State 319:
     (254) cmd ::= PRAGMA nm dbnm *
           cmd ::= PRAGMA nm dbnm * EQ nmnum
           cmd ::= PRAGMA nm dbnm * LP nmnum RP
@@ -9636,107 +9629,112 @@ State 320:
                             EQ shift  7
                      {default} reduce 254
 
-State 321:
+State 320:
           valuelist ::= VALUES LP nexprlist * RP
           nexprlist ::= nexprlist * COMMA expr
 
                             RP shift  461
                          COMMA shift  35
 
-State 322:
+State 321:
           inscollist_opt ::= LP inscollist * RP
           inscollist ::= inscollist * COMMA nm
 
                             RP shift  462
                          COMMA shift  171
 
-State 323:
+State 322:
           cmd ::= createkw uniqueflag INDEX ifnotexists nm dbnm ON nm LP idxlist * RP where_opt
           idxlist ::= idxlist * COMMA nm collate sortorder
 
-                            RP shift  258
+                            RP shift  257
                          COMMA shift  167
 
-State 324:
+State 323:
           tcons ::= FOREIGN KEY LP idxlist * RP REFERENCES nm idxlist_opt refargs defer_subclause_opt
           idxlist ::= idxlist * COMMA nm collate sortorder
 
                             RP shift  377
                          COMMA shift  167
 
-State 325:
+State 324:
           tcons ::= UNIQUE LP idxlist * RP onconf
           idxlist ::= idxlist * COMMA nm collate sortorder
 
-                            RP shift  272
+                            RP shift  271
                          COMMA shift  167
 
-State 326:
+State 325:
           idxlist_opt ::= LP idxlist * RP
           idxlist ::= idxlist * COMMA nm collate sortorder
 
                             RP shift  502
                          COMMA shift  167
 
-State 327:
+State 326:
           refact ::= SET * NULL
           refact ::= SET * DEFAULT
 
                        DEFAULT shift  508
                           NULL shift  509
 
-State 328:
+State 327:
           init_deferred_pred_opt ::= INITIALLY * DEFERRED
           init_deferred_pred_opt ::= INITIALLY * IMMEDIATE
 
                       DEFERRED shift  518
                      IMMEDIATE shift  517
 
-State 329:
+State 328:
           ccons ::= NOT * NULL onconf
           defer_subclause ::= NOT * DEFERRABLE init_deferred_pred_opt
 
-                          NULL shift  282
-                    DEFERRABLE shift  281
+                          NULL shift  281
+                    DEFERRABLE shift  280
 
-State 330:
+State 329:
           using_opt ::= USING LP inscollist * RP
           inscollist ::= inscollist * COMMA nm
 
                             RP shift  544
                          COMMA shift  171
 
-State 331:
+State 330:
           typetoken ::= typename LP signed * RP
           typetoken ::= typename LP signed * COMMA signed RP
 
                             RP shift  579
                          COMMA shift  65
 
-State 332:
+State 331:
           explain ::= EXPLAIN QUERY * PLAN
 
                           PLAN shift  422
 
-State 333:
+State 332:
       (6) explain ::= EXPLAIN *
           explain ::= EXPLAIN * QUERY PLAN
 
-                         QUERY shift  332
+                         QUERY shift  331
                      {default} reduce 6
 
-State 334:
-    (316) cmd ::= create_vtab *
+State 333:
+    (315) cmd ::= create_vtab *
           cmd ::= create_vtab * LP vtabarglist RP
 
-                            LP shift  189
-                     {default} reduce 316
+                            LP shift  190
+                     {default} reduce 315
+
+State 334:
+          fullname_grk ::= CONSTRAINT * ANY
+
+                           ANY shift  430
 
 State 335:
           cmd ::= ALTER TABLE add_column_fullname * ADD kwcolumn_opt column
-          cmd ::= ALTER TABLE add_column_fullname * ADD CONSTRAINT fullname_grk carglist
+          cmd ::= ALTER TABLE add_column_fullname * ADD fullname_grk carglist
 
-                           ADD shift  216
+                           ADD shift  186
 
 State 336:
           cmd ::= ALTER TABLE fullname RENAME * TO nm
@@ -9753,7 +9751,7 @@ State 337:
 State 338:
           cmd ::= ALTER * TABLE fullname RENAME TO nm
           cmd ::= ALTER * TABLE add_column_fullname ADD kwcolumn_opt column
-          cmd ::= ALTER * TABLE add_column_fullname ADD CONSTRAINT fullname_grk carglist
+          cmd ::= ALTER * TABLE add_column_fullname ADD fullname_grk carglist
 
                          TABLE shift  64
 
@@ -9809,7 +9807,7 @@ State 347:
 State 348:
           create_vtab ::= createkw VIRTUAL * TABLE ifnotexists nm dbnm USING nm
 
-                         TABLE shift  253
+                         TABLE shift  252
 
 State 349:
           trigger_cmd_list ::= trigger_cmd * SEMI
@@ -9904,7 +9902,7 @@ State 365:
 State 366:
           cmd ::= createkw uniqueflag * INDEX ifnotexists nm dbnm ON nm LP idxlist RP where_opt
 
-                         INDEX shift  260
+                         INDEX shift  259
 
 State 367:
           trigger_time ::= INSTEAD * OF
@@ -9943,7 +9941,7 @@ State 372:
 State 373:
           cmd ::= createkw temp VIEW ifnotexists nm dbnm * AS select
 
-                            AS shift  186
+                            AS shift  187
 
 State 374:
           ifnotexists ::= IF NOT * EXISTS
@@ -9958,7 +9956,7 @@ State 375:
 State 376:
           defer_subclause ::= NOT * DEFERRABLE init_deferred_pred_opt
 
-                    DEFERRABLE shift  281
+                    DEFERRABLE shift  280
 
 State 377:
           tcons ::= FOREIGN KEY LP idxlist RP * REFERENCES nm idxlist_opt refargs defer_subclause_opt
@@ -9988,7 +9986,7 @@ State 381:
 State 382:
           tcons ::= PRIMARY KEY LP idxlist autoinc * RP onconf
 
-                            RP shift  273
+                            RP shift  272
 
 State 383:
           tcons ::= PRIMARY KEY * LP idxlist autoinc RP onconf
@@ -10112,7 +10110,7 @@ State 405:
           expr ::= RAISE * LP IGNORE RP
           expr ::= RAISE * LP raisetype COMMA nm RP
 
-                            LP shift  200
+                            LP shift  201
 
 State 406:
           expr ::= CASE case_operand case_exprlist case_else * END
@@ -10122,7 +10120,7 @@ State 406:
 State 407:
           expr ::= EXISTS * LP select RP
 
-                            LP shift  188
+                            LP shift  189
 
 State 408:
           expr ::= CAST LP expr AS typetoken * RP
@@ -10185,7 +10183,7 @@ State 417:
           expr ::= ID * LP distinct exprlist RP
           expr ::= ID * LP STAR RP
 
-                            LP shift  214
+                            LP shift  215
                      {default} reduce 38
 
 State 418:
@@ -10197,7 +10195,7 @@ State 419:
      (19) cmd ::= ROLLBACK trans_opt *
           cmd ::= ROLLBACK trans_opt * TO savepoint_opt nm
 
-                            TO shift  301
+                            TO shift  300
                      {default} reduce 19
 
 State 420:
@@ -10216,49 +10214,49 @@ State 422:
                      {default} reduce 7
 
 State 423:
-    (325) lp ::= LP *
-
-                     {default} reduce 325
-
-State 424:
-    (328) anylist ::= anylist ANY *
-
-                     {default} reduce 328
-
-State 425:
-    (327) anylist ::= anylist LP anylist RP *
-
-                     {default} reduce 327
-
-State 426:
-    (324) vtabargtoken ::= lp anylist RP *
+    (324) lp ::= LP *
 
                      {default} reduce 324
 
-State 427:
-    (323) vtabargtoken ::= ANY *
+State 424:
+    (327) anylist ::= anylist ANY *
+
+                     {default} reduce 327
+
+State 425:
+    (326) anylist ::= anylist LP anylist RP *
+
+                     {default} reduce 326
+
+State 426:
+    (323) vtabargtoken ::= lp anylist RP *
 
                      {default} reduce 323
 
-State 428:
-    (322) vtabarg ::= vtabarg vtabargtoken *
+State 427:
+    (322) vtabargtoken ::= ANY *
 
                      {default} reduce 322
 
-State 429:
-    (317) cmd ::= create_vtab LP vtabarglist RP *
+State 428:
+    (321) vtabarg ::= vtabarg vtabargtoken *
 
-                     {default} reduce 317
+                     {default} reduce 321
+
+State 429:
+    (316) cmd ::= create_vtab LP vtabarglist RP *
+
+                     {default} reduce 316
 
 State 430:
-    (315) fullname_grk ::= ANY *
+    (314) fullname_grk ::= CONSTRAINT ANY *
 
-                     {default} reduce 315
+                     {default} reduce 314
 
 State 431:
-    (313) kwcolumn_opt ::= COLUMNKW *
+    (312) kwcolumn_opt ::= COLUMNKW *
 
-                     {default} reduce 313
+                     {default} reduce 312
 
 State 432:
     (310) cmd ::= ALTER TABLE add_column_fullname ADD kwcolumn_opt column *
@@ -10386,9 +10384,9 @@ State 456:
                      {default} reduce 27
 
 State 457:
-    (318) create_vtab ::= createkw VIRTUAL TABLE ifnotexists nm dbnm USING nm *
+    (317) create_vtab ::= createkw VIRTUAL TABLE ifnotexists nm dbnm USING nm *
 
-                     {default} reduce 318
+                     {default} reduce 317
 
 State 458:
     (282) trigger_cmd_list ::= trigger_cmd SEMI *
@@ -11505,8 +11503,8 @@ Symbols:
   240: database_kw_opt: <lambda> DATABASE
   241: key_opt: <lambda> KEY
   242: add_column_fullname: ID INDEXED STRING JOIN_KW
-  243: kwcolumn_opt: <lambda> COLUMNKW
-  244: fullname_grk: ANY
+  243: kwcolumn_opt: COLUMNKW
+  244: fullname_grk: CONSTRAINT
   245: create_vtab: CREATE
   246: vtabarglist: <lambda> LP COMMA ANY
   247: vtabarg: <lambda> LP ANY
