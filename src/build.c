@@ -1277,6 +1277,11 @@ void sqlite3AddCheckConstraint(
   Table *pTab = pParse->pNewTable;
   if( pTab && !IN_DECLARE_VTAB ){
     pTab->pCheck = sqlite3ExprListAppend(pParse, pTab->pCheck, pCheckExpr);
+    
+    pParse->constraintName.z = (char *)malloc(256);
+    strcpy(pParse->constraintName.z,"contra");
+    pParse->constraintName.n = strlen("contra");
+
     if( pParse->constraintName.n ){
       sqlite3ExprListSetName(pParse, pTab->pCheck, &pParse->constraintName, 1);
     }

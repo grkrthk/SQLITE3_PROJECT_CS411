@@ -671,13 +671,24 @@ void sqlite3AlterFinishAddColumn(Parse *pParse, Token *pColDef){
       return;
   }
 
-  char temp_buf[100]="check (";
-  strcat(temp_buf,(pParse->expression_buf->zStart));
+//  if(!((pParse->check_constraint).z)){
+      char temp_buf[100]="check (";
+      strcat(temp_buf,(pParse->expression_buf->zStart));
 
-  pColDef->z = (char *)malloc(256);
-  pColDef->n = strlen(temp_buf);
-  strcpy((char *)pColDef->z,temp_buf);
- 
+      pColDef->z = (char *)malloc(256);
+      pColDef->n = strlen(temp_buf);
+      strcpy((char *)pColDef->z,temp_buf);
+//  }
+/*
+  else {
+      char temp_buf1[100];
+      strcpy(temp_buf1,((pParse->check_constraint).z));
+
+      pColDef->z = (char *)malloc(256);
+      pColDef->n = strlen(temp_buf1);
+      strcpy((char *)pColDef->z,temp_buf1);
+  }
+*/  
   Table *pNew;              /* Copy of pParse->pNewTable */
   Table *pTab;              /* Table being altered */
   int iDb;                  /* Database number */
