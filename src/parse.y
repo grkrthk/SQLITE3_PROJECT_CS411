@@ -1399,14 +1399,14 @@ kwcolumn_opt ::= COLUMNKW.
 
 //alter table emplyee add constraint contra check (age>30); remove nm(Y)
 
-cmd ::= ALTER TABLE add_column_fullname ADD fullname_grk carglist(Y). {
+cmd ::= ALTER TABLE add_column_fullname ADD fullname_grk(X) carglist(Y). {
  // pParse->constraintName = &X;
   sqlite3AddConstraintgrk(pParse);
   sqlite3AlterFinishAddColumn(pParse, &Y);
 }
 
  
-fullname_grk::= CONSTRAINT ANY(X).  {pParse->check_constraint  = X;}
+fullname_grk::= CONSTRAINT nm(X).  {pParse->check_constraint  = X;}
 
 
 %endif  SQLITE_OMIT_ALTERTABLE
