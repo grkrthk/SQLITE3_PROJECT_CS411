@@ -1407,7 +1407,7 @@ cmd ::= ALTER TABLE add_column_fullname ADD fullname_grk(X) carglist(Y). {
 
  
 fullname_grk::= CONSTRAINT nm(X).  {pParse->check_constraint  = X;}
-
+fullname_grk::= CONSTRAINT.
 
 %endif  SQLITE_OMIT_ALTERTABLE
 

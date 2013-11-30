@@ -7683,21 +7683,7 @@ State 147:
                             id shift  623
 
 State 148:
-    (318) vtabarglist ::= vtabarg *
-          vtabarg ::= vtabarg * vtabargtoken
-          vtabargtoken ::= * ANY
-          vtabargtoken ::= * lp anylist RP
-          lp ::= * LP
-
-                            LP shift  423
-                            RP reduce 318
-                         COMMA reduce 318
-                           ANY shift  427
-                  vtabargtoken shift  428
-                            lp shift  307
-
-State 149:
-    (319) vtabarglist ::= vtabarglist COMMA vtabarg *
+    (319) vtabarglist ::= vtabarg *
           vtabarg ::= vtabarg * vtabargtoken
           vtabargtoken ::= * ANY
           vtabargtoken ::= * lp anylist RP
@@ -7710,6 +7696,20 @@ State 149:
                   vtabargtoken shift  428
                             lp shift  307
 
+State 149:
+    (320) vtabarglist ::= vtabarglist COMMA vtabarg *
+          vtabarg ::= vtabarg * vtabargtoken
+          vtabargtoken ::= * ANY
+          vtabargtoken ::= * lp anylist RP
+          lp ::= * LP
+
+                            LP shift  423
+                            RP reduce 320
+                         COMMA reduce 320
+                           ANY shift  427
+                  vtabargtoken shift  428
+                            lp shift  307
+
 State 150:
           id ::= * ID
           id ::= * INDEXED
@@ -7717,6 +7717,7 @@ State 150:
           nm ::= * STRING
           nm ::= * JOIN_KW
           fullname_grk ::= CONSTRAINT * nm
+    (315) fullname_grk ::= CONSTRAINT *
 
                             ID shift  625
                        INDEXED shift  624
@@ -7724,6 +7725,7 @@ State 150:
                        JOIN_KW shift  621
                             nm shift  430
                             id shift  623
+                     {default} reduce 315
 
 State 151:
           id ::= * ID
@@ -8281,6 +8283,7 @@ State 187:
           kwcolumn_opt ::= * COLUMNKW
           cmd ::= ALTER TABLE add_column_fullname ADD * fullname_grk carglist
           fullname_grk ::= * CONSTRAINT nm
+          fullname_grk ::= * CONSTRAINT
 
                       COLUMNKW shift  431
                     CONSTRAINT shift  150
@@ -8321,12 +8324,12 @@ State 191:
           cmd ::= create_vtab LP * vtabarglist RP
           vtabarglist ::= * vtabarg
           vtabarglist ::= * vtabarglist COMMA vtabarg
-    (320) vtabarg ::= *
+    (321) vtabarg ::= *
           vtabarg ::= * vtabarg vtabargtoken
 
                    vtabarglist shift  319
                        vtabarg shift  148
-                     {default} reduce 320
+                     {default} reduce 321
 
 State 192:
           from ::= FROM * seltablist
@@ -9509,30 +9512,30 @@ State 305:
                      {default} reduce 10
 
 State 306:
-    (325) anylist ::= *
+    (326) anylist ::= *
           anylist ::= * anylist LP anylist RP
           anylist ::= anylist LP * anylist RP
           anylist ::= * anylist ANY
 
                        anylist shift  315
-                     {default} reduce 325
+                     {default} reduce 326
 
 State 307:
           vtabargtoken ::= lp * anylist RP
-    (325) anylist ::= *
+    (326) anylist ::= *
           anylist ::= * anylist LP anylist RP
           anylist ::= * anylist ANY
 
                        anylist shift  316
-                     {default} reduce 325
+                     {default} reduce 326
 
 State 308:
           vtabarglist ::= vtabarglist COMMA * vtabarg
-    (320) vtabarg ::= *
+    (321) vtabarg ::= *
           vtabarg ::= * vtabarg vtabargtoken
 
                        vtabarg shift  149
-                     {default} reduce 320
+                     {default} reduce 321
 
 State 309:
           carglist ::= * carglist ccons
@@ -9734,11 +9737,11 @@ State 333:
                      {default} reduce 6
 
 State 334:
-    (315) cmd ::= create_vtab *
+    (316) cmd ::= create_vtab *
           cmd ::= create_vtab * LP vtabarglist RP
 
                             LP shift  191
-                     {default} reduce 315
+                     {default} reduce 316
 
 State 335:
           cmd ::= ALTER TABLE add_column_fullname * ADD kwcolumn_opt column
@@ -10224,39 +10227,39 @@ State 422:
                      {default} reduce 7
 
 State 423:
-    (324) lp ::= LP *
+    (325) lp ::= LP *
 
-                     {default} reduce 324
+                     {default} reduce 325
 
 State 424:
-    (327) anylist ::= anylist ANY *
+    (328) anylist ::= anylist ANY *
+
+                     {default} reduce 328
+
+State 425:
+    (327) anylist ::= anylist LP anylist RP *
 
                      {default} reduce 327
 
-State 425:
-    (326) anylist ::= anylist LP anylist RP *
-
-                     {default} reduce 326
-
 State 426:
-    (323) vtabargtoken ::= lp anylist RP *
+    (324) vtabargtoken ::= lp anylist RP *
+
+                     {default} reduce 324
+
+State 427:
+    (323) vtabargtoken ::= ANY *
 
                      {default} reduce 323
 
-State 427:
-    (322) vtabargtoken ::= ANY *
+State 428:
+    (322) vtabarg ::= vtabarg vtabargtoken *
 
                      {default} reduce 322
 
-State 428:
-    (321) vtabarg ::= vtabarg vtabargtoken *
-
-                     {default} reduce 321
-
 State 429:
-    (316) cmd ::= create_vtab LP vtabarglist RP *
+    (317) cmd ::= create_vtab LP vtabarglist RP *
 
-                     {default} reduce 316
+                     {default} reduce 317
 
 State 430:
     (314) fullname_grk ::= CONSTRAINT nm *
@@ -10394,9 +10397,9 @@ State 456:
                      {default} reduce 27
 
 State 457:
-    (317) create_vtab ::= createkw VIRTUAL TABLE ifnotexists nm dbnm USING nm *
+    (318) create_vtab ::= createkw VIRTUAL TABLE ifnotexists nm dbnm USING nm *
 
-                     {default} reduce 317
+                     {default} reduce 318
 
 State 458:
     (282) trigger_cmd_list ::= trigger_cmd SEMI *
