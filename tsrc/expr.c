@@ -1101,9 +1101,31 @@ void sqlite3ExprListSetName(
   if( pList ){
     struct ExprList_item *pItem;
     assert( pList->nExpr>0 );
+    int i;
+
+    if(pParse->alter_flag==1 && ((pParse->check_constraint).n)){
+    // get the column name
+        char temp[256];
+        strcpy(temp,(pParse->expression_buf->pExpr->pLeft->u).zToken);
+        for(i=0;i<pList->nExpr;i++){
+               if(!strcmp(temp,(((pList->a[i]).pExpr)->pLeft->u).zToken))
+                      break;
+        }
+    }
+    if(pParse->alter_flag==1){
+       pItem = &pList->a[i];
+    }
+
+    else 
     pItem = &pList->a[pList->nExpr-1];
+
     assert( pItem->zName==0 );
-    pItem->zName = sqlite3DbStrNDup(pParse->db, pName->z, pName->n);
+//    if(pParse->alter_flag == 1){
+//    pItem->zName = (char *)malloc(strlen(pName->z));
+//    strcpy(pItem->zName,pName->z);
+//    }
+//    else 
+      pItem->zName = sqlite3DbStrNDup(pParse->db, pName->z, pName->n);
     if( dequote && pItem->zName ) sqlite3Dequote(pItem->zName);
   }
 }

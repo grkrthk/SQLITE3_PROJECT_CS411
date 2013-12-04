@@ -665,6 +665,7 @@ void sqlite3MinimumFileFormat(Parse *pParse, int iDb, int minFormat){
 */
 void sqlite3AlterFinishAddColumn(Parse *pParse, Token *pColDef){
 
+if(pParse->alter_flag == 1){
 
   if(!pParse->expression_buf){
       sqlite3ErrorMsg(pParse, "Check the syntax at the end of the query");
@@ -675,9 +676,11 @@ void sqlite3AlterFinishAddColumn(Parse *pParse, Token *pColDef){
       char temp_buf[100]="check (";
       strcat(temp_buf,(pParse->expression_buf->zStart));
 
-      pColDef->z = (char *)malloc(256);
+      pColDef->z = (char *)malloc(strlen(temp_buf));
       pColDef->n = strlen(temp_buf);
       strcpy((char *)pColDef->z,temp_buf);
+
+}
 //  }
 /*
   else {

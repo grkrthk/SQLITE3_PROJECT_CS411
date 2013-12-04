@@ -1269,6 +1269,10 @@ primary_key_exit:
 /*
 ** Add a new CHECK constraint to the table currently under construction.
 */
+
+char persistent_buf[256];
+int flag=0;
+
 void sqlite3AddCheckConstraint(
   Parse *pParse,    /* Parsing context */
   Expr *pCheckExpr  /* The check expression */
@@ -1277,12 +1281,27 @@ void sqlite3AddCheckConstraint(
   Table *pTab = pParse->pNewTable;
   if( pTab && !IN_DECLARE_VTAB ){
     pTab->pCheck = sqlite3ExprListAppend(pParse, pTab->pCheck, pCheckExpr);
-    
-    pParse->constraintName.z = (char *)malloc(256);
-    strcpy(pParse->constraintName.z,"contra");
-    pParse->constraintName.n = strlen("contra");
 
-    if( pParse->constraintName.n ){
+  
+    if( pParse->alter_flag==1 ){   // for named constraints in the context of alter table
+       
+       pParse->constraintName.z = (char *)malloc(((pParse->check_constraint).n)+4);
+       char *ptr = (char *)(pParse->check_constraint).z;
+       char *temp = ptr;
+       while(*ptr != ' ') ptr++;
+       *ptr = '\0';
+       strcpy(persistent_buf,temp);
+       strcpy((char *)pParse->constraintName.z,(char *)persistent_buf);
+       pParse->constraintName.n = strlen(temp);
+     //  flag =1; 
+    }
+
+    if(!(pParse->constraintName.z)){
+            pParse->constraintName.z = (char *)malloc(256);
+            strcpy((char *)pParse->constraintName.z, persistent_buf);
+            pParse->constraintName.n = strlen(persistent_buf);
+    }
+    if( pParse->constraintName.n){
       sqlite3ExprListSetName(pParse, pTab->pCheck, &pParse->constraintName, 1);
     }
   }else

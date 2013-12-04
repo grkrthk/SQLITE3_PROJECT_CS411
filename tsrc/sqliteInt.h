@@ -2311,6 +2311,7 @@ struct Parse {
 
   struct ExprSpan* expression_buf; /* expression to hold our new feature */
   Token check_constraint;  /* check constrint : for our new feature */
+  int alter_flag;
 };
 
 /*

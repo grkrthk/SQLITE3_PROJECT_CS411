@@ -3615,37 +3615,42 @@ static void yy_reduce(
         break;
       case 314: /* fullname_grk ::= CONSTRAINT nm */
 #line 1409 "parse.y"
-{pParse->check_constraint  = yymsp[0].minor.yy0;}
+{pParse->alter_flag=1; pParse->check_constraint  = yymsp[0].minor.yy0;}
 #line 3620 "parse.c"
         break;
-      case 316: /* cmd ::= create_vtab */
-#line 1416 "parse.y"
-{sqlite3VtabFinishParse(pParse,0);}
+      case 315: /* fullname_grk ::= CONSTRAINT */
+#line 1410 "parse.y"
+{pParse->alter_flag =1;}
 #line 3625 "parse.c"
         break;
-      case 317: /* cmd ::= create_vtab LP vtabarglist RP */
-#line 1417 "parse.y"
-{sqlite3VtabFinishParse(pParse,&yymsp[0].minor.yy0);}
+      case 316: /* cmd ::= create_vtab */
+#line 1421 "parse.y"
+{sqlite3VtabFinishParse(pParse,0);}
 #line 3630 "parse.c"
         break;
+      case 317: /* cmd ::= create_vtab LP vtabarglist RP */
+#line 1422 "parse.y"
+{sqlite3VtabFinishParse(pParse,&yymsp[0].minor.yy0);}
+#line 3635 "parse.c"
+        break;
       case 318: /* create_vtab ::= createkw VIRTUAL TABLE ifnotexists nm dbnm USING nm */
-#line 1419 "parse.y"
+#line 1424 "parse.y"
 {
     sqlite3VtabBeginParse(pParse, &yymsp[-3].minor.yy0, &yymsp[-2].minor.yy0, &yymsp[0].minor.yy0, yymsp[-4].minor.yy194);
 }
-#line 3637 "parse.c"
+#line 3642 "parse.c"
         break;
       case 321: /* vtabarg ::= */
-#line 1424 "parse.y"
+#line 1429 "parse.y"
 {sqlite3VtabArgInit(pParse);}
-#line 3642 "parse.c"
+#line 3647 "parse.c"
         break;
       case 323: /* vtabargtoken ::= ANY */
       case 324: /* vtabargtoken ::= lp anylist RP */ yytestcase(yyruleno==324);
       case 325: /* lp ::= LP */ yytestcase(yyruleno==325);
-#line 1426 "parse.y"
+#line 1431 "parse.y"
 {sqlite3VtabArgExtend(pParse,&yymsp[0].minor.yy0);}
-#line 3649 "parse.c"
+#line 3654 "parse.c"
         break;
       default:
       /* (0) input ::= cmdlist */ yytestcase(yyruleno==0);
@@ -3676,7 +3681,6 @@ static void yy_reduce(
       /* (303) database_kw_opt ::= DATABASE */ yytestcase(yyruleno==303);
       /* (304) database_kw_opt ::= */ yytestcase(yyruleno==304);
       /* (312) kwcolumn_opt ::= COLUMNKW */ yytestcase(yyruleno==312);
-      /* (315) fullname_grk ::= CONSTRAINT */ yytestcase(yyruleno==315);
       /* (319) vtabarglist ::= vtabarg */ yytestcase(yyruleno==319);
       /* (320) vtabarglist ::= vtabarglist COMMA vtabarg */ yytestcase(yyruleno==320);
       /* (322) vtabarg ::= vtabarg vtabargtoken */ yytestcase(yyruleno==322);
@@ -3748,7 +3752,7 @@ static void yy_syntax_error(
   UNUSED_PARAMETER(yymajor);  /* Silence some compiler warnings */
   assert( TOKEN.z[0] );  /* The tokenizer always gives us a token */
   sqlite3ErrorMsg(pParse, "near \"%T\": syntax error", &TOKEN);
-#line 3752 "parse.c"
+#line 3756 "parse.c"
   sqlite3ParserARG_STORE; /* Suppress warning about unused %extra_argument variable */
 }
 
