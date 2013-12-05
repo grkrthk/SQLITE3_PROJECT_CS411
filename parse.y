@@ -1401,8 +1401,9 @@ kwcolumn_opt ::= COLUMNKW.
 
 cmd ::= ALTER TABLE add_column_fullname ADD fullname_grk(X) carglist(Y). {
  // pParse->constraintName = &X;
-  sqlite3AddConstraintgrk(pParse);
+ //  sqlite3AddConstraintgrk(pParse);
   sqlite3AlterFinishAddColumn(pParse, &Y);
+  sqlite3AddConstraintgrk(pParse);
 }
 
  

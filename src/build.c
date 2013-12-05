@@ -1283,7 +1283,7 @@ void sqlite3AddCheckConstraint(
     pTab->pCheck = sqlite3ExprListAppend(pParse, pTab->pCheck, pCheckExpr);
 
   
-    if( pParse->alter_flag==1 ){   // for named constraints in the context of alter table
+    if( pParse->alter_flag==1 && (pParse->check_constraint).z){   // for named constraints in the context of alter table
        
        pParse->constraintName.z = (char *)malloc(((pParse->check_constraint).n)+4);
        char *ptr = (char *)(pParse->check_constraint).z;

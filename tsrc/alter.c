@@ -423,7 +423,8 @@ void sqlite3AddConstraintgrk(Parse *pParse) //, SrcList *pSrc, Expr *pExpr)
 //   reloadTableSchema(pParse, pTab, zName);   
    error_handler:
 */
-   printf(" Work In progress, Come back again\n");
+  // if(!pParse->zErrMsg)
+   printf("Warning: This will have no effect on the existing tuples\n");
    return ;
 }
 
