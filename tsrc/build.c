@@ -1273,13 +1273,17 @@ primary_key_exit:
 char persistent_buf[256];
 int flag=0;
 
+void memset_persistent_buf(){
+   memset(persistent_buf,0,256);
+}
+
 void sqlite3AddCheckConstraint(
   Parse *pParse,    /* Parsing context */
   Expr *pCheckExpr  /* The check expression */
 ){
 #ifndef SQLITE_OMIT_CHECK
  
-  memset(persistent_buf,0,256);
+//  memset(persistent_buf,0,256);
   Table *pTab = pParse->pNewTable;
   if( pTab && !IN_DECLARE_VTAB ){
     pTab->pCheck = sqlite3ExprListAppend(pParse, pTab->pCheck, pCheckExpr);
