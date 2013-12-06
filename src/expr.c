@@ -1119,13 +1119,17 @@ void sqlite3ExprListSetName(
     else 
     pItem = &pList->a[pList->nExpr-1];
 
+    if(pItem->zName != 0){
+            pItem->zName = 0;
+    }
+
     assert( pItem->zName==0 );
 //    if(pParse->alter_flag == 1){
 //    pItem->zName = (char *)malloc(strlen(pName->z));
 //    strcpy(pItem->zName,pName->z);
 //    }
 //    else 
-      pItem->zName = sqlite3DbStrNDup(pParse->db, pName->z, pName->n);
+    pItem->zName = sqlite3DbStrNDup(pParse->db, pName->z, pName->n);
     if( dequote && pItem->zName ) sqlite3Dequote(pItem->zName);
   }
 }

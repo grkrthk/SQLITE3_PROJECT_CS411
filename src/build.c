@@ -1278,6 +1278,8 @@ void sqlite3AddCheckConstraint(
   Expr *pCheckExpr  /* The check expression */
 ){
 #ifndef SQLITE_OMIT_CHECK
+ 
+  memset(persistent_buf,0,256);
   Table *pTab = pParse->pNewTable;
   if( pTab && !IN_DECLARE_VTAB ){
     pTab->pCheck = sqlite3ExprListAppend(pParse, pTab->pCheck, pCheckExpr);
