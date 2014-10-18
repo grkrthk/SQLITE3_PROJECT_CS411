@@ -2,10 +2,15 @@ To install:
 -----------
 
 1.> git clone https://github.com/grkrthk/SQLITE3_PROJECT_CS411
+
 2.> cd SQLITE3_PROJECT_CS411
+
 3.> ./configure
+
 4.> make
+
 5.> ./sqlite3
+
 
 OUTPUT SNIPPET:
 --------------
