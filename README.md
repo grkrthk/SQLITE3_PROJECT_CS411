@@ -28,5 +28,6 @@ sqlite> insert into employee (age) values (28);
 Error: constraint constr1 failed
 
 sqlite> select * from employee;
+
 70
 
