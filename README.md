@@ -13,6 +13,7 @@ OUTPUT SNIPPET:
 sqlite> create table employee (age char);
 
 sqlite> alter table employee add constraint constr1 check (age>30);
+
 Warning: This will have no effect on the existing tuples
 
 sqlite> insert into employee (age) values (70);
