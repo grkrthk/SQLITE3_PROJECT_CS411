@@ -37,11 +37,7 @@ TCC += -D_HAVE_SQLITE_CONFIG_H -DBUILD_sqlite
 # Omitting the define will cause extra debugging code to be inserted and
 # includes extra comments when "EXPLAIN stmt" is used.
 #
-#GRK
-
-#TCC += -DNDEBUG 
-
-TCC += -DSQLITE_DEBUG
+TCC += -DNDEBUG 
 
 # Compiler options needed for programs that use the TCL library.
 #
@@ -108,11 +104,11 @@ HAVE_TCL =
 # This is the command to use for tclsh - normally just "tclsh", but we may
 # know the specific version we want to use
 #
-TCLSH_CMD = tclsh8.5
+TCLSH_CMD = tclsh8.6
 
 # Where do we want to install the tcl plugin
 #
-TCLLIBDIR = /usr/share/tcltk/tcl8.5/sqlite3
+TCLLIBDIR = /usr/share/tcltk/tcl8.6/sqlite3
 
 # The suffix used on shared libraries.  Ex:  ".dll", ".so", ".dylib"
 #
